@@ -28,6 +28,8 @@ AFRAME.registerComponent("join-leave-game", {
                     displayName = user.displayName;
                     el.setAttribute("color", "red");
                     console.log(displayName + " joined the game.");
+                    console.log(player1joined);
+                    console.log(player2joined);
                     if (player1.length == 0 && el.getAttribute("color") == "red") {
                         player1.push(displayName);
                         player1.push(userId);
@@ -57,12 +59,14 @@ AFRAME.registerComponent("join-leave-game", {
                                 fbRef.doc("Player 1").delete();
                                 el.setAttribute("color", "green");
                                 console.log(displayName + " left the game.");
+                                console.log(player1joined);
                             }
                             if (player2.includes(userId)) {
                                 player2 = [];
                                 fbRef.doc("Player 2").delete();
                                 el.setAttribute("color", "green");
                                 console.log(displayName + " left the game.");
+                                console.log(player2joined);
                             }
 
                         });
