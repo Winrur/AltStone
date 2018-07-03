@@ -13,8 +13,8 @@ AFRAME.registerComponent("join-leave-game", {
         })
         fbRef.doc("States").onSnapshot(function(doc){
           var data = doc.data();
-          player1joined = p1joined;
-          player2joined = p2joined;
+          p1joined = p1joined;
+          p2joined = p2joined;
           console.log(player1joined);
         })
         fbRef.doc("Player 1").delete();
@@ -35,14 +35,20 @@ AFRAME.registerComponent("join-leave-game", {
                             displayName: player1[0],
                             userId: player1[1],
                         });
+                        fbRef.doc("States").update({
+                          p1joined: true
+                        })
                     }
-                    if (player2.length == 0 && el.getAttribute("color") == "green") {
+                    if (player1joined == true) {
                         player2.push(displayName);
                         player2.push(userId);
                         fbRef.doc("Player 2").set({
                             displayName: player2[0],
                             userId: player2[1]
                         });
+                        fbRef.doc("States").update({
+                          p2joined: true
+                        })
                     }
                     if (el.getAttribute("color") == "red") {
                         el.object3D.addEventListener("cursordown", function() {
