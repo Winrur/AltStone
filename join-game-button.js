@@ -10,6 +10,8 @@ AFRAME.registerComponent("join-leave-game", {
       el.object3D.addEventListener("cursordown", function(){
         var userId;
         var displayName;
+        console.log(player1.length);
+        console.log(player2.length);
         if(player1.length == 0 || player2.length == 0 && el.getAttribute("color") != "red"){
           altspace.getUser().then(function(user){
             userId = user.userId;
@@ -54,7 +56,7 @@ AFRAME.registerComponent("join-leave-game", {
                   }
               });
             }
-            } else if (player2.length == 0){
+            } if (player2.length == 0){
               player2.push(displayName);
               player2.push(userId);
               fbRef.doc("Player 2").set({
