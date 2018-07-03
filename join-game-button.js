@@ -22,7 +22,7 @@ AFRAME.registerComponent("join-leave-game", {
         el.object3D.addEventListener("cursordown", function() {
             var userId;
             var displayName;
-            if (player1joined == false && player2joined == false) {
+            if (player1joined == false || player2joined == false) {
                 altspace.getUser().then(function(user) {
                     userId = user.userId;
                     displayName = user.displayName;
