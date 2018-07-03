@@ -54,14 +54,14 @@ AFRAME.registerComponent("join-leave-game", {
                     }
                     if (el.getAttribute("color") == "red") {
                         el.object3D.addEventListener("cursordown", function() {
-                            if (player1.includes(userId)) {
+                            if (player1joined == true) {
                                 player1 = [];
                                 fbRef.doc("Player 1").delete();
                                 el.setAttribute("color", "green");
                                 console.log(displayName + " left the game.");
                                 console.log(player1joined);
                             }
-                            if (player2.includes(userId)) {
+                            if (player2joined == true) {
                                 player2 = [];
                                 fbRef.doc("Player 2").delete();
                                 el.setAttribute("color", "green");
