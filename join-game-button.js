@@ -13,8 +13,8 @@ AFRAME.registerComponent("join-leave-game", {
         })
         fbRef.doc("States").onSnapshot(function(doc){
           var data = doc.data();
-          p1joined = p1joined;
-          p2joined = p2joined;
+          player1joined = p1joined;
+          player2joined = p2joined;
           console.log(player1joined);
         })
         fbRef.doc("Player 1").delete();
@@ -22,7 +22,7 @@ AFRAME.registerComponent("join-leave-game", {
         el.object3D.addEventListener("cursordown", function() {
             var userId;
             var displayName;
-            if (player1joined == false) {
+            if (player1joined == false && player2joined == false) {
                 altspace.getUser().then(function(user) {
                     userId = user.userId;
                     displayName = user.displayName;
