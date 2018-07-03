@@ -36,9 +36,6 @@ AFRAME.registerComponent("join-leave-game", {
                             displayName: player1[0],
                             userId: player1[1],
                         });
-                        fbRef.doc("States").update({
-                          p1joined: true
-                        })
                     }
                     if (player1joined == true && player2joined == false) {
                         player2.push(displayName);
@@ -47,9 +44,6 @@ AFRAME.registerComponent("join-leave-game", {
                             displayName: player2[0],
                             userId: player2[1]
                         });
-                        fbRef.doc("States").update({
-                          p2joined: true
-                        })
                         player2joined = true;
                     }
                     if (el.getAttribute("color") == "red") {
