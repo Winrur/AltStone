@@ -5,12 +5,24 @@ AFRAME.registerComponent("join-leave-game", {
         var playerText = document.getElementById("player-text");
         var player1 = [];
         var player2 = [];
+        var player1joined = false;
+        var player2joined = false;
+        fbRef.doc("States").set({
+          p1joined: false,
+          p2joined: false
+        })
+        fbRef.doc("States").onSnapshot(function(doc){
+          var data = doc.data();
+          player1joined = p1joined;
+          player2joined = p2joined;
+          console.log(player1joined);
+        })
         fbRef.doc("Player 1").delete();
         fbRef.doc("Player 2").delete();
         el.object3D.addEventListener("cursordown", function() {
             var userId;
             var displayName;
-            if (el.getAttribute("color") != "red") {
+            if (player1joined == false) {
                 altspace.getUser().then(function(user) {
                     userId = user.userId;
                     displayName = user.displayName;
@@ -21,10 +33,10 @@ AFRAME.registerComponent("join-leave-game", {
                         player1.push(userId);
                         fbRef.doc("Player 1").set({
                             displayName: player1[0],
-                            userId: player1[1]
+                            userId: player1[1],
                         });
                     }
-                    if (player2.length == 0 && player1[1] != userId) {
+                    if (player2.length == 0 && el.getAttribute("color") == "green") {
                         player2.push(displayName);
                         player2.push(userId);
                         fbRef.doc("Player 2").set({
