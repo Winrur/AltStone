@@ -13,8 +13,8 @@ AFRAME.registerComponent("join-leave-game", {
         })
         fbRef.doc("States").onSnapshot(function(doc){
           var data = doc.data();
-          player1joined = p1joined;
-          player2joined = p2joined;
+          player1joined = data.p1joined;
+          player2joined = data.p2joined;
           console.log(player1joined);
         })
         fbRef.doc("Player 1").delete();
