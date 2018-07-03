@@ -56,7 +56,7 @@ AFRAME.registerComponent("join-leave-game", {
                   }
               });
             }
-            } if (player2.length == 0){
+            } else if (player2.length == 0 && player1.length == 2){
               player2.push(displayName);
               player2.push(userId);
               fbRef.doc("Player 2").set({
