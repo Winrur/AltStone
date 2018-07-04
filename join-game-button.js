@@ -19,7 +19,7 @@ AFRAME.registerComponent("join-game-p1", {
         var displayName;
         fbRef.doc("Player 1").delete();
         fbRef.doc("States").update({
-          p1color: green
+          p1color: "green"
         })
         el.object3D.addEventListener("cursordown", function() {
             if (p1join == false && p2join == false) {
@@ -30,7 +30,7 @@ AFRAME.registerComponent("join-game-p1", {
                     p1AboveText.setAttribute("visible", true);
                     p1AboveText.setAttribute("n-skeleton-parent", {part: "head", userId: userId});
                     fbRef.doc("States").update({
-                      p1color: red
+                      p1color: "red"
                     })
                     el.setAttribute("color", p1color);
                     //p1JoinText.setAttribute("n-text", "text", "Waiting for opponent...");
