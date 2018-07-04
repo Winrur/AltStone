@@ -6,6 +6,8 @@
   <script type="text/javascript" src="card.js"></script>
   <script type="text/javascript" src="setup.js"></script>
   <script type="text/javascript" src="cardlist.js"></script>
+  <script type="text/javascript" src="join-game-button.js"></script>
+  <script type="text/javascript" src="game.js"></script>
   <script>
   	// Initialize Firebase
   	firebase.initializeApp({
@@ -17,87 +19,9 @@
 	var db = firebase.firestore();
 	var fbRef = db.collection("AltStone");
  </script>
- <script>
-  var turnCounter = 0
-  var cardArr = [];
-  var cardData;
-  for(var i = 53; i <= 220; i++){
-    var currentCard = cardList.Basic[i]
-    console.log(i);
-    cardArr[i] = new Card( currentCard.name,
-                           currentCard.type,
-                           currentCard.playerClass,
-                           currentCard.cost,
-                           currentCard.attack,
-                           currentCard.health,
-                           currentCard.dbfId,
-                           currentCard.imgGold,
-                           "https://raw.githubusercontent.com/schmich/hearthstone-card-images/master/rel/" + currentCard.dbfId + ".png");
-  };
-  console.log(cardArr);
-  var druidDeck = [ cardArr[57], //Innervate
-                    cardArr[57], //Innervate
-                    cardArr[68], //Claw
-                    cardArr[68], //Claw
-                    cardArr[126], //Mark of the Wild
-                    cardArr[126], //Mark of the Wild
-                    cardArr[141], //Wild Growth
-                    cardArr[141], //Wild Growth
-                    cardArr[187], //Swipe
-                    cardArr[187], //Swipe
-                    cardArr[211], //Starfire
-                    cardArr[211], //Starfire
-                    cardArr[219], //Ironbark Protector
-                    cardArr[219], //Ironbark Protector
-                    cardArr[106], //Acidic Swamp Ooze
-                    cardArr[106], //Acidic Swamp Ooze
-                    cardArr[109], //Bloodfen Raptor
-                    cardArr[109], //Bloodfen Raptor
-                    cardArr[165], //Shattered Sun Cleric 
-                    cardArr[171], //Chillwind Yeti
-                    cardArr[171], //Chillwind Yeti
-                    cardArr[175], //Gnomish Inventor
-                    cardArr[175], //Gnomish Inventor
-                    cardArr[185],//Sen'jin Shieldmasta
-                    cardArr[185],//Sen'jin Shieldmasta
-                    cardArr[196],//Darkscale Healer
-                    cardArr[206],//Boulderfist Ogre
-                    cardArr[186], //Stormwind Champion
-                    cardArr[186] //Stormwind Champion
-                  ];
-  function shuffle(deck) {
-    for (let i = deck.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [deck[i], deck[j]] = [deck[j], deck[i]];
-    }
-    return deck;
-}
-function setupGame(){
-  turnCounter = 0;
-  shuffle(druidDeck);
-  fbRef.doc("Cards").set({
-
-  })
-
-};
-setupGame();
- </script>
- <script>
-  AFRAME.registerComponent("card", {
-    schema: {},
-    init: function(){
-      var el = this.el;
-      el.addEventListener('cursordown', function () {
-
-      });
-    }
-  });
- </script>
-  <script src="join-game-button.js">
- </script>
 	</head>
 	<body>
-		<a-scene altspace="fullspace: true">
+		<a-scene altspace="fullspace: true" sync-system="app: AltStone; author: Winrar">
       <a-plane class="card" material="transparent: true" position="-3 0.2" rotation="270 180" scale="1.2 1.7 1.7"></a-plane>
       <a-plane class="card" material="transparent: true" position="-4.2 0.2" rotation="270 180" scale="1.2 1.7 1.7"></a-plane>
       <a-plane class="card" material="transparent: true" position="-5.4 0.2" rotation="270 180" scale="1.2 1.7 1.7"></a-plane>
@@ -115,8 +39,12 @@ setupGame();
       <a-box class="crystal" color="white" position="-7.5 0.2 -1.5" scale="0.2 0.2 0.2"></a-box>
       <a-box class="crystal" color="white" position="-8 0.2 -1.5" scale="0.2 0.2 0.2" material="opacity: 0"></a-box>
       <a-box class="crystal" color="white" position="-8.5 0.2 -1.5" scale="0.2 0.2 0.2" visible=false></a-box>
-      <a-box join-leave-game id="button" color="green" position="-5 3 -1.5" scale="0.2 0.2 0.2"></a-box>
-      <a-entity material="opacity: 0" id="player-text" n-text="text: Player -" n-skeleton-parent="part: head" scale="0.4 0.4" position="0 0.5"></a-entity>
+      <a-box id="p1-join-box" join-game-p1 color="green" position="-5 0.7 -3"></a-box>
+      <a-entity id="join-game-p1-text" n-text="text: Join game! :)" position="-5 1.9 -3" scale="0.4 0.4 0.4"></a-entity>
+      <a-box id="p2-join-box" join-game-p2 color="green" position="-5 0.7 8.4"></a-box>
+      <a-entity id="join-game-p2-text" n-text="text: Join game! :)"" position="-5 1.9 8.4" scale="0.4 0.4 0.4"rotation="0 180 0"></a-entity>
+      <a-entity visible="false" id="p1-above-text" n-text="text: Player 1" n-skeleton-parent="userId: 0" sync sync-n-skeleton-parent scale="0.4 0.4" position="0 0.5"></a-entity>
+      <a-entity visible="false" id="p2-above-text" n-text="text: Player 2" n-skeleton-parent="userId: 0" sync sync-n-skeleton-parent scale="0.4 0.4" position="0 0.5"></a-entity>
 		</a-scene>
 	</body>
   <script>
