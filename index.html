@@ -6,8 +6,6 @@
   <script type="text/javascript" src="card.js"></script>
   <script type="text/javascript" src="setup.js"></script>
   <script type="text/javascript" src="cardlist.js"></script>
-  <script type="text/javascript" src="join-game-button.js"></script>
-  <script type="text/javascript" src="game.js"></script>
   <script>
   	// Initialize Firebase
   	firebase.initializeApp({
@@ -19,6 +17,8 @@
 	var db = firebase.firestore();
 	var fbRef = db.collection("AltStone");
  </script>
+ <script type="text/javascript" src="game.js"></script>
+ <script type="text/javascript" src="join-game-button.js"></script>
 	</head>
 	<body>
 		<a-scene altspace="fullspace: true" sync-system="app: AltStone; author: Winrar">
