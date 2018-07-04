@@ -20,7 +20,7 @@ AFRAME.registerComponent("join-game-p1", {
                     p1AboveText.setAttribute("visible", true);
                     p1AboveText.setAttribute("n-skeleton-parent", {part: "head", userId: userId});
                     el.setAttribute("color", "red");
-                    p1JoinText.setAttribute("n-text", "text", "Waiting for opponent...");
+                    //p1JoinText.setAttribute("n-text", "text", "Waiting for opponent...");
                     console.log(displayName + " joined the game as P1.");
                     player1.push(displayName);
                     player1.push(userId);
@@ -34,7 +34,7 @@ AFRAME.registerComponent("join-game-p1", {
               p1AboveText.setAttribute("visible", false);
               p1join = false;
               el.setAttribute("color", "green");
-              p1JoinText.setAttribute("n-text", "text", "Join game! :)");
+              //p1JoinText.setAttribute("n-text", "text", "Join game! :)");
               console.log(displayName + " left the game.");
               player1 = [];
               fbRef.doc("Player 1").delete();
