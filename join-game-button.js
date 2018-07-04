@@ -1,20 +1,26 @@
 var p1join = false;
-var p1JoinText = document.getElementById("join-game-p1-text")
+var p1color = "green";
+var p1JoinText = document.getElementById("join-game-p1-text");
 var p2join= false;
-var p2JoinText = document.getElementById("join-game-p2-text")
+var p2color = "green";
+var p2JoinText = document.getElementById("join-game-p2-text");
+fbRef.doc("States").onSnapshot(function(doc){
+  var data = doc.data();
+  p1color = data.p1color;
+  p2color = data.p2color;
+})
 AFRAME.registerComponent("join-game-p1", {
     schema: {},
     init: function() {
-      fbRef.doc("States").set({
-        p1joined: p1join,
-        p2joined: p2join
-      });
         var el = this.el;
         var player1 = [];;
         var p1AboveText = document.getElementById("p1-above-text");
         var userId;
         var displayName;
         fbRef.doc("Player 1").delete();
+        fbRef.doc("States").update({
+          p1color: green
+        })
         el.object3D.addEventListener("cursordown", function() {
             if (p1join == false && p2join == false) {
                 altspace.getUser().then(function(user) {
@@ -23,7 +29,10 @@ AFRAME.registerComponent("join-game-p1", {
                     p1join = true;
                     p1AboveText.setAttribute("visible", true);
                     p1AboveText.setAttribute("n-skeleton-parent", {part: "head", userId: userId});
-                    el.setAttribute("color", "red");
+                    fbRef.doc("States").update({
+                      p1color: red
+                    })
+                    el.setAttribute("color", p1color);
                     //p1JoinText.setAttribute("n-text", "text", "Waiting for opponent...");
                     console.log(displayName + " joined the game as P1.");
                     player1.push(displayName);
