@@ -104,9 +104,9 @@ setupGame();
       <a-box class="crystal" color="white" position="-7.5 0.2 -1.5" scale="0.2 0.2 0.2"></a-box>
       <a-box class="crystal" color="white" position="-8 0.2 -1.5" scale="0.2 0.2 0.2" material="opacity: 0"></a-box>
       <a-box class="crystal" color="white" position="-8.5 0.2 -1.5" scale="0.2 0.2 0.2" visible=false></a-box>
-      <a-box id="p1-join-box" join-game-p1 color="green" sync sync-color position="-5 0.7 -3"></a-box>
+      <a-box id="p1-join-box" join-game-p1 material="color: green" sync-color position="-5 0.7 -3"></a-box>
       <a-entity id="join-game-p1-text" n-text="text: Join game! :)" position="-5 1.9 -3" scale="0.4 0.4 0.4"></a-entity>
-      <a-box id="p2-join-box" join-game-p2 color="green" sync sync-color position="-5 0.7 8.4"></a-box>
+      <a-box id="p2-join-box" join-game-p2 material="color: green" sync="own-on: click" sync-color position="-5 0.7 8.4"></a-box>
       <a-entity id="join-game-p2-text" n-text="text: Join game! :)"" position="-5 1.9 8.4" scale="0.4 0.4 0.4"rotation="0 180 0"></a-entity>
       <a-entity visible="false" id="p1-above-text" n-text="text: Player 1" n-skeleton-parent="userId: 0" sync sync-n-skeleton-parent scale="0.4 0.4" position="0 0.5"></a-entity>
       <a-entity visible="false" id="p2-above-text" n-text="text: Player 2" n-skeleton-parent="userId: 0" sync sync-n-skeleton-parent scale="0.4 0.4" position="0 0.5"></a-entity>

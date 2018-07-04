@@ -33,11 +33,6 @@ AFRAME.registerComponent("join-game-p1", {
                         userId: player1[1],
                     });
                 })
-                      fbRef.doc("States").get().then(function(doc){
-                        var data = doc.data();
-                        p1join = data.p1joined;
-                        p2join = data.p2joined;
-                    });
             } else if (el.getAttribute("color") == "red") {
               p1AboveText.setAttribute("visible", false);
               p1join = false;
