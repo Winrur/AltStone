@@ -16,9 +16,9 @@ AFRAME.registerComponent("join-game-p1", {
                 altspace.getUser().then(function(user) {
                     userId = user.userId;
                     displayName = user.displayName;
+                    p1join = true;
                     p1AboveText.setAttribute("visible", true);
                     p1AboveText.setAttribute("n-skeleton-parent", {part: "head", userId: userId});
-                    p1join = true;
                     el.setAttribute("color", "red");
                     p1JoinText.setAttribute("n-text", "text", "Waiting for opponent...");
                     console.log(displayName + " joined the game as P1.");
@@ -29,6 +29,7 @@ AFRAME.registerComponent("join-game-p1", {
                         userId: player1[1],
                     });
                 })
+
             } else if (el.getAttribute("color") == "red") {
               p1AboveText.setAttribute("visible", false);
               p1join = false;
@@ -61,7 +62,7 @@ AFRAME.registerComponent("join-game-p2", {
                     p2AboveText.setAttribute("n-skeleton-parent", {part: "head", userId: userId});
                     p2join = true;
                     el.setAttribute("color", "red");
-                    p2JoinText.setAttribute("n-text", "text", "Waiting for opponent...");
+                    //p2JoinText.setAttribute("n-text", "text", "Waiting for opponent...");
                     console.log(displayName + " joined the game as P2.");
                     player2.push(displayName);
                     player2.push(userId);
@@ -74,7 +75,7 @@ AFRAME.registerComponent("join-game-p2", {
               p2AboveText.setAttribute("visible", false);
               p2join = false;
               el.setAttribute("color", "green");
-              p2JoinText.setAttribute("n-text", "text", "Join game! :)");
+              //p2JoinText.setAttribute("n-text", "text", "Join game! :)");
               console.log(displayName + " left the game.");
               player2 = [];
               fbRef.doc("Player 2").delete();
@@ -96,5 +97,6 @@ AFRAME.registerComponent("game-start", {
         p2JoinText.setAttribute("visible", false);
       }
     }
+    startGame();
   }
 })
