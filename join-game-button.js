@@ -5,6 +5,10 @@ var p2JoinText = document.getElementById("join-game-p2-text")
 AFRAME.registerComponent("join-game-p1", {
     schema: {},
     init: function() {
+      fbRef.doc("States").set({
+        p1joined: p1join,
+        p2joined: p2join
+      });
         var el = this.el;
         var player1 = [];;
         var p1AboveText = document.getElementById("p1-above-text");
@@ -29,7 +33,11 @@ AFRAME.registerComponent("join-game-p1", {
                         userId: player1[1],
                     });
                 })
-
+                      fbRef.doc("States").get().then(function(doc){
+                        var data = doc.data();
+                        p1join = data.p1joined;
+                        p2join = data.p2joined;
+                    });
             } else if (el.getAttribute("color") == "red") {
               p1AboveText.setAttribute("visible", false);
               p1join = false;
