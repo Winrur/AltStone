@@ -40,10 +40,10 @@ AFRAME.registerComponent("join-game-p1", {
             
           }
 
-    })
         el.object3D.addEventListener("triggerexit", function() {
             if (el.getAttribute("id") == "p1-join-box" && gameStarted == false && p1User.userId == user.userId) {
             p1Joined = false;
+            fbRef.doc("Player 1").delete();
             console.log(p1User.displayName + " (P1) left the game.");
             fbRef.doc("States").update({
                         p1joined: p1Joined
@@ -53,6 +53,7 @@ AFRAME.registerComponent("join-game-p1", {
 
     })
         });
+            })
     }
 
 });
@@ -97,6 +98,7 @@ AFRAME.registerComponent("join-game-p2", {
         el.object3D.addEventListener("triggerexit", function() {
             if (el.getAttribute("id") == "p2-join-box" && gameStarted == false && p2User.userId == user.userId) {
             p2Joined = false;
+            fbRef.doc("Player 2").delete();
             console.log(p2User.displayName + " (P2) left the game.");
             fbRef.doc("States").update({
                         p2joined: p2Joined
