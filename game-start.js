@@ -48,6 +48,7 @@
     })
     fbRef.doc("Player 2").get().then(function(doc){
       var data = doc.data();
+      console.log("USER ID ---------------------- " + data.userid);
       p2Id = data.userid;
     })
     altspace.getUser().then(function(user){
