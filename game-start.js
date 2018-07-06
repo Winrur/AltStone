@@ -60,17 +60,17 @@
           }
           for (var i = 0; i <= 1; i++){
               endTurnP1[i].setAttribute("visible", true);
-              endTurnP2[i].setAttribute("visible", true);
+              endTurnP2[i].setAttribute("visib  le", true);
           }
          for(var i = 0; i <= 4; i++){
+          cardP1Ref[i].setAttribute("src", "#card-back");
+          cardP2Ref[i].setAttribute("src", "#card-back");
           if (p1Id == user.userId) {
               console.log("test");
               cardP1Ref[i].setAttribute("src", p1Deck[i].img);
-              cardP2Ref[i].setAttribute("src", "#card-back");
-          } else if (p2Id == user.userId) {
+          } if (p2Id == user.userId) {
             console.log("test");
               cardP2Ref[i].setAttribute("src", p2Deck[i].img);
-              cardP1Ref[i].setAttribute("src", "#card-back");
           }
          }  
          for(var i = 0; i <= 4; i++){
