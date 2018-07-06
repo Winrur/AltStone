@@ -89,34 +89,66 @@ setupGame();
 		<a-scene sync-system="app: AltStone; author: Winrar" altspace="fullspace: true">
       <a-assets>
         <img id="player-area" src="playerarea.jpg">
+        <img id="board" src="wood-board.jpg">
+        <img id="mana" src="mana.png">
       </a-assets>
-      <a-plane class="card" material="transparent: true" position="-3 0.2" rotation="270 180" scale="1.2 1.7 1.7"></a-plane>
-      <a-plane class="card" material="transparent: true" position="-4.2 0.2" rotation="270 180" scale="1.2 1.7 1.7"></a-plane>
-      <a-plane class="card" material="transparent: true" position="-5.4 0.2" rotation="270 180" scale="1.2 1.7 1.7"></a-plane>
-      <a-plane class="card" material="transparent: true" position="-6.6 0.2" rotation="270 180" scale="1.2 1.7 1.7"></a-plane>
-      <a-plane class="card" material="transparent: true" position="-7.8 0.2" rotation="270 180" scale="1.2 1.7 1.7"></a-plane>
-      <a-box class="crystal" color="white" position="-3 0.2 -1.5" scale="0.2 0.2 0.2"></a-box>
-      <a-box class="crystal" color="white" position="-3.5 0.2 -1.5" scale="0.2 0.2 0.2"></a-box>
-      <a-box class="crystal" color="white" position="-4 0.2 -1.5" scale="0.2 0.2 0.2"></a-box>
-      <a-box class="crystal" color="white" position="-4.5 0.2 -1.5" scale="0.2 0.2 0.2"></a-box>
-      <a-box class="crystal" color="white" position="-5 0.2 -1.5" scale="0.2 0.2 0.2"></a-box>
-      <a-box class="crystal" color="white" position="-5.5 0.2 -1.5" scale="0.2 0.2 0.2"></a-box>
-      <a-box class="crystal" color="white" position="-6 0.2 -1.5" scale="0.2 0.2 0.2"></a-box>
-      <a-box class="crystal" color="white" position="-6.5 0.2 -1.5" scale="0.2 0.2 0.2"></a-box>
-      <a-box class="crystal" color="white" position="-7 0.2 -1.5" scale="0.2 0.2 0.2"></a-box>
-      <a-box class="crystal" color="white" position="-7.5 0.2 -1.5" scale="0.2 0.2 0.2"></a-box>
-      <a-box class="crystal" color="white" position="-8 0.2 -1.5" scale="0.2 0.2 0.2" material="opacity: 0"></a-box>
-      <a-box class="crystal" color="white" position="-8.5 0.2 -1.5" scale="0.2 0.2 0.2" visible=false></a-box>
-      <a-box id="p1-join-box" join-game-p1 n-box-collider="isTrigger: true; type: object; size: 1 100 1" material="src: #player-area" position="-5 0.1 -2.8" scale="7 0.1 2.2"></a-box>
-      <a-box id="p2-join-box" join-game-p2 n-box-collider="isTrigger: true; type: object; size: 1 100 1" material="src: #player-area"  position="-5 0.1 8" scale="7 0.1 2.2"></a-box>
+      <a-plane class="card-p1" material="transparent: true; opacity: 0" position="-2.2 0.1 -0.8" rotation="270 180" scale="1.4 1.8 1.8"></a-plane>
+      <a-plane class="card-place-p1" material="transparent: true; color: green; opacity: 0" position="-2.2 0.1 1.5" rotation="270 180" scale="1.1 1.6 1.6"></a-plane>
+      <a-plane class="card-p1" material="transparent: true; opacity: 0" position="-3.6 0.1 -0.8" rotation="270 180" scale="1.4 1.8 1.8"></a-plane>
+      <a-plane class="card-place-p1" material="transparent: true; color: green; opacity: 0" position="-3.6 0.1 1.5" rotation="270 180" scale="1.1 1.6 1.6"></a-plane>
+      <a-plane class="card-p1" material="transparent: true; opacity: 0" position="-5 0.1 -0.8" rotation="270 180" scale="1.4 1.8 1.8"></a-plane>
+      <a-plane class="card-place-p1" material="transparent: true; color: green; opacity: 0" position="-5 0.1 1.5" rotation="270 180" scale="1.1 1.6 1.6"></a-plane>
+      <a-plane class="card-p1" material="transparent: true; opacity: 0" position="-6.4 0.1 -0.8" rotation="270 180" scale="1.4 1.8 1.8"></a-plane>
+      <a-plane class="card-place-p1" material="transparent: true; color: green; opacity: 0" position="-6.4 0.1 1.5" rotation="270 180" scale="1.1 1.6 1.6"></a-plane>
+      <a-plane class="card-p1" material="transparent: true; opacity: 0" position="-7.8 0.1 -0.8" rotation="270 180" scale="1.4 1.8 1.8"></a-plane>
+      <a-plane class="card-place-p1" material="transparent: true; color: green; opacity: 0" position="-7.8 0.1 1.5" rotation="270 180" scale="1.1 1.6 1.6"></a-plane>
+      <!-- P2 CARDS -->
+      <a-plane class="card-p2" material="transparent: true; opacity: 0" position="-2.2 0.1 5.8" rotation="270 0" scale="1.4 1.8 1.8"></a-plane>
+      <a-plane class="card-place-p2" material="transparent: true; color: green; opacity: 0" position="-2.2 0.1 3.8" rotation="270 0" scale="1.1 1.6 1.6"></a-plane>
+      <a-plane class="card-p2" material="transparent: true; opacity: 0" position="-3.6 0.1 5.8" rotation="270 0" scale="1.4 1.8 1.8"></a-plane>
+      <a-plane class="card-place-p2" material="transparent: true; color: green; opacity: 0" position="-3.6 0.1 3.8" rotation="270 0" scale="1.1 1.6 1.6"></a-plane>
+      <a-plane class="card-p2" material="transparent: true; opacity: 0" position="-5 0.1 5.8" rotation="270 0" scale="1.4 1.8 1.8"></a-plane>
+      <a-plane class="card-place-p2" material="transparent: true; color: green; opacity: 0" position="-5 0.1 3.8" rotation="270 0" scale="1.1 1.6 1.6"></a-plane>
+      <a-plane class="card-p2" material="transparent: true; opacity: 0" position="-6.4 0.1 5.8" rotation="270 0" scale="1.4 1.8 1.8"></a-plane>
+      <a-plane class="card-place-p2" material="transparent: true; color: green; opacity: 0" position="-6.4 0.1 3.8" rotation="270 0" scale="1.1 1.6 1.6"></a-plane>
+      <a-plane class="card-p2" material="transparent: true; opacity: 0" position="-7.8 0.1 5.8" rotation="270 0" scale="1.4 1.8 1.8"></a-plane>
+      <a-plane class="card-place-p2" material="transparent: true; color: green; opacity: 0" position="-7.8 0.1 3.8" rotation="270 0" scale="1.1 1.6 1.6"></a-plane>
+      <!-- P1 MANA -->
+      <a-entity class="mana-p1" material="opacity: 0" n-text="text: Current Mana:" scale="0.2 0.2 0.2" position="-0.8 0.1 -0.5" rotation="270 180"></a-entity>
+      <a-plane class="mana-p1" material="transparent: true; src: #mana; opacity: 0" position="-0.8 0.1 -1.1" rotation="270 180" scale="1 1 1"></a-plane>
+      <a-entity class="mana-p1" material="opacity: 0" n-text="text: 0 / 10" scale="0.1 0.1 0.1" position="-0.85 0.2 -1.3" rotation="270 180"></a-entity>
+      <!-- P2 MANA -->
+      <a-entity class="mana-p2" material="opacity: 0" n-text="text: Current Mana:" scale="0.2 0.2 0.2" position="-0.8 0.1 5.5" rotation="270 0"></a-entity>
+      <a-plane class="mana-p2" material="transparent: true; src: #mana; opacity: 0" position="-0.8 0.1 6.2" rotation="270 0" scale="1 1 1"></a-plane>
+      <a-entity class="mana-p2" material="opacity: 0" n-text="text: 0 / 10" scale="0.1 0.1 0.1" position="-0.8 0.2 6.4" rotation="270 0"></a-entity>
+      <!-- STUFF -->
+      <a-box id="p1-join-box" join-game-p1 n-box-collider="isTrigger: true; type: object; size: 1 100 1" material="src: #player-area" position="-5 0.1 -2.8" scale="10 0.1 2.2"></a-box>
+      <a-box id="p2-join-box" join-game-p2 n-box-collider="isTrigger: true; type: object; size: 1 100 1" material="src: #player-area"  position="-5 0.1 8" scale="10 0.1 2.2"></a-box>
+      <a-plane material="src: #board" scale="10 8.5" rotation="270 0" position="-5 0 2.6"></a-plane>
       <a-entity id="join-game-p1-text" n-text="text: Step on here to join game! :)" position="-5 1.9 -3" scale="0.4 0.4 0.4" n-billboard></a-entity>
       <a-entity id="join-game-p2-text" n-text="text: Step on here to join game! :)" position="-5 1.9 8.4" scale="0.4 0.4 0.4" rotation="0 180 0" n-billboard></a-entity>
       <a-entity id="game-manager" start-game></a-entity>
 		</a-scene>
 	</body>
   <script>
-    var cards = document.getElementsByClassName("card");
-    for(var i = 0; i <= 5; i++){
+    var cardP1 = document.getElementsByClassName("card-p1");
+    var cardP2 = document.getElementsByClassName("card-p2");
+    var cardPlaceP1 = document.getElementsByClassName("card-place-p1");
+    var cardPlaceP2 = document.getElementsByClassName("card-place-p2");
+    var manaP1 = document.getElementsByClassName("mana-p1");
+    var manaP2 = document.getElementsByClassName("mana-p2");
+    function gameStartStuff () {
+    fbRef.doc("States").get().then(function(doc){
+      var data = doc.data();
+      if (data.gamestarted == true) {
+          for (var i = 0; i <= 3; i++){
+              manaP1[i].setAttribute("material", "opacity", 1);
+              manaP2[i].setAttribute("material", "opacity", 1);
+          }
+      }
+    })
+    }
+    for(var i = 0; i <= 10; i++){
       cards[i].setAttribute("src", druidDeck[i].img);
     }
   </script>
