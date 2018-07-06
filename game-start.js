@@ -98,10 +98,10 @@
                 if(this.el.getAttribute("src") != "#card-back" && this.el.getAttribute("material", "color") != "grey"){
                 var el = this.el;
                 el.setAttribute("material", "color", "grey");
-                }
-                if(this.el.getAttribute("material", "color") == "grey"){
+                } else if(this.el.getAttribute("material", "color") == "grey"){
                 var el = this.el;
                 el.setAttribute("material", "color", "white");
+                console.log("test");
                 }
               })
 
@@ -110,8 +110,7 @@
                 if(this.el.getAttribute("src") != "#card-back" && this.el.getAttribute("material", "color") != "grey"){
                 var el = this.el;
                 el.setAttribute("material", "color", "grey");
-                }
-                if(this.el.getAttribute("material", "color") == "grey"){
+                } else if(this.el.getAttribute("material", "color") == "grey"){
                 var el = this.el;
                 el.setAttribute("material", "color", "white");
                 }
