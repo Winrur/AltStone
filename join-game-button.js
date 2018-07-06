@@ -126,6 +126,10 @@ AFRAME.registerComponent("start-game", {
             gamestarted: gameStarted
         })
     }
-}
+},
+   tick: function() {
+    console.log("P1Joined: " + p1Joined);
+    console.log("P2Joined: " + p2Joined);
+   }
 
 });
