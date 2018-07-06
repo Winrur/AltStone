@@ -95,16 +95,13 @@
          for(var i = 3; i <= 6; i++){
               cardP1Ref[i].setAttribute("visible", true);
               cardP1Ref[i].object3D.addEventListener("cursordown", function(){
-                if(clicked == false && this.el.getAttribute("src") != "#card-back"){
+                if(this.el.getAttribute("src") != "#card-back"){
                 var el = this.el;
                 el.setAttribute("color", "grey");
-                clicked = true;
                 }
-                console.log(clicked);
-                if(clicked == true){
+                if(this.el.getAttribute("color") == "grey"){
                 var el = this.el;
-                el.setAttribute("color", "grey");
-                clicked = false;
+                el.setAttribute("color", "");
                 }
               })
 
