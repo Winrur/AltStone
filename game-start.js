@@ -114,6 +114,7 @@
                 el.setAttribute("material", "color", "grey");
                 }
          endTurnP1[0].object3D.addEventListener("cursordown", function(){
+          console.log("test");
             for (var i = 3; i <=6; i++){
               if (cardP1Ref[i].getAttribute("material", "color") == "grey"){
                 cardP1Ref[i].setAttribute("visible", false);
@@ -129,6 +130,7 @@
                 el.setAttribute("material", "color", "grey");
                 }
          endTurnP2[0].object3D.addEventListener("cursordown", function(){
+          console.log("test");
             for (var i = 3; i <=6; i++){
               if (cardP2Ref[i].getAttribute("material", "color") == "grey"){
                 cardP2Ref[i].setAttribute("visible", false);
