@@ -91,7 +91,7 @@
               endTurnP1[i].setAttribute("visible", true);
               endTurnP2[i].setAttribute("visible", true);
           }
-         for(var i = 0; i <= 9; i++){
+         for(var i = 3; i <= 6; i++){
               cardP1Ref[i].setAttribute("visible", true);
               cardP2Ref[i].setAttribute("visible", true);
          }     
