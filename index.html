@@ -86,6 +86,9 @@ setupGame();
  </script>
 	</head>
 	<body>
+    <a-assets>
+      <img id="player-area" src="playerarea.jpeg">
+    </a-assets>
 		<a-scene sync-system="app: AltStone; author: Winrar" altspace="fullspace: true">
       <a-plane class="card" material="transparent: true" position="-3 0.2" rotation="270 180" scale="1.2 1.7 1.7"></a-plane>
       <a-plane class="card" material="transparent: true" position="-4.2 0.2" rotation="270 180" scale="1.2 1.7 1.7"></a-plane>
@@ -104,8 +107,8 @@ setupGame();
       <a-box class="crystal" color="white" position="-7.5 0.2 -1.5" scale="0.2 0.2 0.2"></a-box>
       <a-box class="crystal" color="white" position="-8 0.2 -1.5" scale="0.2 0.2 0.2" material="opacity: 0"></a-box>
       <a-box class="crystal" color="white" position="-8.5 0.2 -1.5" scale="0.2 0.2 0.2" visible=false></a-box>
-      <a-box id="p1-join-box" join-game-p1 n-box-collider="isTrigger: true; type: object; size: 1w 100 1" color="green" position="-5 0.1 -2.8" scale="7 0.1 2.2"></a-box>
-      <a-box id="p2-join-box" join-game-p2 n-box-collider="isTrigger: true; type: object; size: 1 100 1" color="green" position="-5 0.1 8" scale="7 0.1 2.2"></a-box>
+      <a-box id="p1-join-box" join-game-p1 n-box-collider="isTrigger: true; type: object; size: 1 100 1" material="src: #player-area" position="-5 0.1 -2.8" scale="7 0.1 2.2"></a-box>
+      <a-box id="p2-join-box" join-game-p2 n-box-collider="isTrigger: true; type: object; size: 1 100 1" material="src: #player-area"  position="-5 0.1 8" scale="7 0.1 2.2"></a-box>
       <a-entity id="join-game-p1-text" n-text="text: Step on here to join game! :)" position="-5 1.9 -3" scale="0.4 0.4 0.4" n-billboard></a-entity>
       <a-entity id="join-game-p2-text" n-text="text: Step on here to join game! :)" position="-5 1.9 8.4" scale="0.4 0.4 0.4" rotation="0 180 0" n-billboard></a-entity>
       <a-entity id="game-manager" start-game></a-entity>

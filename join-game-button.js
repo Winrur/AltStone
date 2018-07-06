@@ -15,11 +15,11 @@ AFRAME.registerComponent("join-game-p1", {
         fbRef.doc("States").onSnapshot(function(doc){
             var data = doc.data();
             if (data.p1joined == true) {
-                el.setAttribute("material", "opacity", 0);
+                el.setAttribute("material", "opacity", 1);
                 p1JoinText.setAttribute("visible", false);
         }
             if (data.p1joined == false) {
-                el.setAttribute("material", "opacity", 1);
+                el.setAttribute("material", "opacity", 0.4);
                 p1JoinText.setAttribute("visible", true);
         }
         })
@@ -69,11 +69,11 @@ AFRAME.registerComponent("join-game-p2", {
         fbRef.doc("States").onSnapshot(function(doc){
             var data = doc.data();
             if (data.p2joined == true) {
-                el.setAttribute("material", "opacity", 0);
+                el.setAttribute("material", "opacity", 1);
                 p2JoinText.setAttribute("visible", false);
         }
             if (data.p2joined == false) {
-                el.setAttribute("material", "opacity", 1);
+                el.setAttribute("material", "opacity", 0.4);
                 p2JoinText.setAttribute("visible", true);
         }
         })
