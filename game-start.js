@@ -42,15 +42,6 @@
     var p1Id = "id here";
     var p2Id = "id here";
     function gameStartStuff () {
-      fbRef.doc("Player 1").get().then(function(doc){
-      var data = doc.data();
-      p1Id = data.userid;
-    })
-    fbRef.doc("Player 2").get().then(function(doc){
-      var data = doc.data();
-      console.log("USER ID ---------------------- " + data.userid);
-      p2Id = data.userid;
-    })
     altspace.getUser().then(function(user){
       currentUserId = user.userId;
          for(var i = 0; i <= 4; i++){
