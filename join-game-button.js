@@ -127,9 +127,9 @@ AFRAME.registerComponent("start-game", {
                 fbRef.doc("States").update({
                     gamestarted: gameStarted
                 })
+                gameStartStuff();
         }
 })
-        gameStartStuff();
     }
 
 });
