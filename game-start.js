@@ -52,6 +52,7 @@
     })
     fbRef.doc("Player 2").get().then(function(doc){
       p2Id = doc.data().userid;
+      console.log(p2Id);
     })
     fbRef.doc("States").get().then(function(doc){
       var data = doc.data();
