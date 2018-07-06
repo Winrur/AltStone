@@ -42,27 +42,16 @@
     var userId;
     var p1Id;
     var p2Id;
-    altspace.getUser().then(function(user){
-      userId = user.userId;
       fbRef.doc("Player 1").get().then(function(doc){
       p1Id = doc.data().userid;
-      console.log(p1Id);
+      console.log(userId);
     })
     fbRef.doc("Player 2").get().then(function(doc){
       p2Id = doc.data().userid;
       console.log(p2Id);
     })
-    fbRef.doc("States").get().then(function(doc){
-      var data = doc.data();
-      if (data.gamestarted == true) {
-          for (var i = 0; i <= 2; i++){
-              manaP1[i].setAttribute("visible", true);
-              manaP2[i].setAttribute("visible", true);
-          }
-          for (var i = 0; i <= 1; i++){
-              endTurnP1[i].setAttribute("visible", true);
-              endTurnP2[i].setAttribute("visible", true);
-          }
+    altspace.getUser().then(function(user){
+      userId = user.userId;
          for(var i = 0; i <= 4; i++){
           console.log(p1Id);
           console.log(userId);
@@ -75,12 +64,25 @@
               cardP1Ref[i].setAttribute("src", "#card-back");
               cardP2Ref[i].setAttribute("src", p2Deck[i].img);
             }
+    fbRef.doc("States").get().then(function(doc){
+      var data = doc.data();
+      if (data.gamestarted == true) {
+          for (var i = 0; i <= 2; i++){
+              manaP1[i].setAttribute("visible", true);
+              manaP2[i].setAttribute("visible", true);
+          }
+          for (var i = 0; i <= 1; i++){
+              endTurnP1[i].setAttribute("visible", true);
+              endTurnP2[i].setAttribute("visible", true);
+          }
+         for(var i = 0; i <= 4; i++){
               cardP1Ref[i].setAttribute("visible", true);
               cardP2Ref[i].setAttribute("visible", true);
          }     
 
       }
     })
+    }
 
     })
   for (var i = 0; i <= 28; i++) {
