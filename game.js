@@ -93,39 +93,6 @@ function setupGame(){
   turnCounter = 0;
   shuffle(p1Deck);
   shuffle(p2Deck);
-  for (var i = 0; i <= 28; i++) {
-    console.log(p1Deck[i].cardType);
-    if (p1Deck[i].cardType != "Spell") {
-  fbRef.doc("Player 1").collection("Cards").doc(i.toString()).set({
-    cardid: i,
-    name: p1Deck[i].cardName,
-    cost: p1Deck[i].cost,
-    health: p1Deck[i].health,
-    attack: p1Deck[i].attack     
-  }) 
-} else {
-  fbRef.doc("Player 1").collection("Cards").doc(i.toString()).set({
-    cardid: i,
-    name: p1Deck[i].cardName,
-    cost: p1Deck[i].cost,
-  })
-  } 
-    if (p2Deck[i].cardType != "Spell") {
-  fbRef.doc("Player 2").collection("Cards").doc(i.toString()).set({
-    cardid: i,
-    name: p2Deck[i].cardName,
-    cost: p2Deck[i].cost,
-    health: p2Deck[i].health,
-    attack: p2Deck[i].attack     
-  }) 
-} else {
-  fbRef.doc("Player 2").collection("Cards").doc(i.toString()).set({
-    cardid: i,
-    name: p2Deck[i].cardName,
-    cost: p2Deck[i].cost,
-  })
-  } 
-}
 
 
 };
