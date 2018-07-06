@@ -72,10 +72,10 @@
           cardP2Ref[i].setAttribute("src", "#card-back");
           if (p1Id == currentUserId) {
               cardP1Ref[i].setAttribute("src", p1Deck[i].img);
-              cardP1Ref[i].setAttribute("rotation", "270 0");
+              cardP1Ref[i].setAttribute("rotation", "270 180");
           } else if (p2Id == currentUserId) {
               cardP2Ref[i].setAttribute("src", p2Deck[i].img);
-              cardP2Ref[i].setAttribute("rotation", "270 180");
+              cardP2Ref[i].setAttribute("rotation", "270 0");
             }
             }
             })
