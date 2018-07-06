@@ -98,6 +98,7 @@ AFRAME.registerComponent("start-game", {
         fbRef.doc("States").update({
             gamestarted: gameStarted
         })
+        if(p1Joined == true && p2Joined == true) {
         fbRef.doc("States").get().then(function(doc){
             var data = doc.data();
             if (data.p1joined == true && data.p2joined == true) {
@@ -107,6 +108,7 @@ AFRAME.registerComponent("start-game", {
         })
             }
         })
+        }
     }
 
 });
