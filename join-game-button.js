@@ -7,6 +7,8 @@ AFRAME.registerComponent("join-game-p1", {
         var el = this.el;
         var p1JoinText = document.getElementById("join-game-p1-text");
         var p1User;
+        fbRef.doc("Player 1").delete();
+        fbRef.doc("Player 2").delete();
         fbRef.doc("States").update({
             p1joined: p1Joined
         })
@@ -21,14 +23,14 @@ AFRAME.registerComponent("join-game-p1", {
                 p1JoinText.setAttribute("visible", true);
         }
         })
-        altspace.getUser().then(function(user){
+        el.object3D.addEventListener("triggerenter", function() {
+            altspace.getUser().then(function(user){
             p1User = user;
             fbRef.doc("Player 1").set({
                 userid: p1User.userId,
                 displayname: p1User.displayName,
                 ismoderator: p1User.isModerator
             })
-        el.object3D.addEventListener("triggerenter", function() {
             if (el.getAttribute("id") == "p1-join-box" && gameStarted == false && p1User.userId == user.userId) {
             p1Joined = true;
             console.log(p1User.displayName + " (P1) joined the game!");
@@ -74,14 +76,14 @@ AFRAME.registerComponent("join-game-p2", {
                 p2JoinText.setAttribute("visible", true);
         }
         })
-        altspace.getUser().then(function(user){
+        el.object3D.addEventListener("triggerenter", function() {
+            altspace.getUser().then(function(user){
             p2User = user;
             fbRef.doc("Player 2").set({
                 userid: p2User.userId,
                 displayname: p2User.displayName,
                 ismoderator: p2User.isModerator
             })
-        el.object3D.addEventListener("triggerenter", function() {
             if (el.getAttribute("id") == "p2-join-box" && gameStarted == false && p2User.userId == user.userId) {
             p2Joined = true;
             console.log(p2User.displayName + " (P2) joined the game!");
