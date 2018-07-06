@@ -52,6 +52,8 @@
         var data = doc.data();
         p2Id = data.userid;
       })
+      console.log(p1Id);
+      console.log(p1Id);
          for(var i = 0; i <= 4; i++){
           if (p1Id == currentUserId) {
               cardP1Ref[i].setAttribute("src", p1Deck[i].img);
