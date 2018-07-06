@@ -1,5 +1,6 @@
     var p1Id;
     var p2Id;
+
     var p1ChooseInsText = document.getElementById("choose-ins-p1-text");
     p1ChooseInsText.setAttribute("visible", false);
     var p1ChooseCardsText = document.getElementById("choose-cards-p1-text");
@@ -83,11 +84,15 @@
               cardP1Ref[i].setAttribute("rotation", "270 180");
               p2ChooseInsText.setAttribute("visible", true);
               p2ChooseCardsText.setAttribute("visible", false);
+              endTurnP1[0].setAttribute("visible", true);
+              endTurnP1[1].setAttribute("visible", true);
           } else if (p2Id == currentUserId) {
               cardP2Ref[i].setAttribute("src", p2Deck[i].img);
               cardP2Ref[i].setAttribute("rotation", "270 0");
               p1ChooseInsText.setAttribute("visible", true);
               p1ChooseCardsText.setAttribute("visible", false);
+              endTurnP2[0].setAttribute("visible", true);
+              endTurnP2[1].setAttribute("visible", true);
             }
             }
             })
@@ -100,8 +105,6 @@
               manaP2[i].setAttribute("visible", true);
           }
           for (var i = 0; i <= 1; i++){
-              endTurnP1[i].setAttribute("visible", true);
-              endTurnP2[i].setAttribute("visible", true);
           }
          for(var i = 3; i <= 6; i++){
               cardP1Ref[i].setAttribute("visible", true);
@@ -119,7 +122,21 @@
                 el.setAttribute("material", "color", "grey");
                 }
               })
-         }     
+         }    
+         endTurnP1[0].object3D.addEventListener("cursordown", function(){
+            for (var i = 3; i <=6; i++){
+              if (cardP1Ref[i].getAttribute("material", "color") == "grey"){
+                cardP1Ref[i].setAttribute("visible", false);
+              }
+            }
+         });
+         endTurnP2[0].object3D.addEventListener("cursordown", function(){
+            for (var i = 3; i <=6; i++){
+              if (cardP2Ref[i].getAttribute("material", "color") == "grey"){
+                cardP2Ref[i].setAttribute("visible", false);
+              }
+            }
+         });
 
       }
     })
