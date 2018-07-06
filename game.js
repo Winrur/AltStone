@@ -15,7 +15,7 @@
                            "https://raw.githubusercontent.com/schmich/hearthstone-card-images/master/rel/" + currentCard.dbfId + ".png");
   };
   console.log(cardArr);
-  var druidDeck = [ cardArr[57], //Innervate
+  var p1Deck, p2Deck = [ cardArr[57], //Innervate
                     cardArr[57], //Innervate
                     cardArr[68], //Claw
                     cardArr[68], //Claw
@@ -45,6 +45,7 @@
                     cardArr[186], //Stormwind Champion
                     cardArr[186] //Stormwind Champion
                   ];
+
   function shuffle(deck) {
     for (let i = deck.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -54,10 +55,7 @@
 }
 function setupGame(){
   turnCounter = 0;
-  shuffle(druidDeck);
-  fbRef.doc("Cards").set({
-
-  })
-
+  shuffle(p1Deck);
+  shuffle(p2Deck);
 };
 setupGame();
