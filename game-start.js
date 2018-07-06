@@ -97,11 +97,11 @@
               cardP1Ref[i].object3D.addEventListener("cursordown", function(){
                 if(this.el.getAttribute("src") != "#card-back"){
                 var el = this.el;
-                el.setAttribute("color", "grey");
+                el.setAttribute("material", "color", "grey");
                 }
-                if(this.el.getAttribute("color") == "grey"){
+                if(this.el.getAttribute("material", "color") == "grey"){
                 var el = this.el;
-                el.setAttribute("color", "");
+                el.setAttribute("material", "color", "white");
                 }
               })
 
