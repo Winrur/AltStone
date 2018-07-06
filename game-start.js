@@ -81,13 +81,13 @@
           if (p1Id == currentUserId) {
               cardP1Ref[i].setAttribute("src", p1Deck[i].img);
               cardP1Ref[i].setAttribute("rotation", "270 180");
-              p1ChooseInsText.setAttribute("visible", true);
-              p1ChooseCardsText.setAttribute("visible", false);
+              p2ChooseInsText.setAttribute("visible", true);
+              p2ChooseCardsText.setAttribute("visible", false);
           } else if (p2Id == currentUserId) {
               cardP2Ref[i].setAttribute("src", p2Deck[i].img);
               cardP2Ref[i].setAttribute("rotation", "270 0");
-              p2ChooseInsText.setAttribute("visible", true);
-              p2ChooseCardsText.setAttribute("visible", false);
+              p1ChooseInsText.setAttribute("visible", true);
+              p1ChooseCardsText.setAttribute("visible", false);
             }
             }
             })
