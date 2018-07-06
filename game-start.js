@@ -67,7 +67,7 @@
         p2Id = data.userid;
       console.log(p1Id);
       console.log(p1Id);
-         for(var i = 0; i <= 4; i++){
+         for(var i = 0; i <= 9; i++){
           cardP1Ref[i].setAttribute("src", "#card-back");
           cardP2Ref[i].setAttribute("src", "#card-back");
           if (p1Id == currentUserId) {
