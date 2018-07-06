@@ -60,7 +60,7 @@
           }
           for (var i = 0; i <= 1; i++){
               endTurnP1[i].setAttribute("visible", true);
-              endTurnP2[i].setAttribute("visib  le", true);
+              endTurnP2[i].setAttribute("visible", true);
           }
          for(var i = 0; i <= 4; i++){
           cardP1Ref[i].setAttribute("src", "#card-back");
