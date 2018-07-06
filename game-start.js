@@ -91,13 +91,35 @@
               endTurnP1[i].setAttribute("visible", true);
               endTurnP2[i].setAttribute("visible", true);
           }
+          var clicked = false;
          for(var i = 3; i <= 6; i++){
               cardP1Ref[i].setAttribute("visible", true);
               cardP1Ref[i].object3D.addEventListener("cursordown", function(){
+                if(clicked == false && el.getAttribute("src") != "#card-back"){
                 var el = this.el;
                 el.setAttribute("color", "grey");
+                clicked = true;
+                }
+                if(clicked == true){
+                var el = this.el;
+                el.setAttribute("color", "grey");
+                clicked = false;
+                }
               })
+
               cardP2Ref[i].setAttribute("visible", true);
+              cardP2Ref[i].object3D.addEventListener("cursordown", function(){
+                if(clicked == false && el.getAttribute("src") != "#card-back"){
+                var el = this.el;
+                el.setAttribute("color", "grey");
+                clicked = true;
+                }
+                if(clicked == true){
+                var el = this.el;
+                el.setAttribute("color", "grey");
+                clicked = false;
+                }
+              })
          }     
 
       }
