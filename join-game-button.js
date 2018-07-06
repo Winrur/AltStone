@@ -127,6 +127,14 @@ AFRAME.registerComponent("start-game", {
                 fbRef.doc("States").update({
                     gamestarted: gameStarted
                 })
+      fbRef.doc("Player 1").get().then(function(doc){
+      var data = doc.data();
+      p1Id = data.userid;
+    })
+    fbRef.doc("Player 2").get().then(function(doc){
+      var data = doc.data();
+      p2Id = data.userid;
+    })
                 gameStartStuff();
         }
 })
