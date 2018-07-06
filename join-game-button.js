@@ -129,6 +129,7 @@ AFRAME.registerComponent("start-game", {
                 })
         }
 })
+        gameStartStuff();
     }
 
 });
