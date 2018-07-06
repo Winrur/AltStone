@@ -94,7 +94,6 @@ AFRAME.registerComponent("join-game-p2", {
             
           }
 
-    })
         el.object3D.addEventListener("triggerexit", function() {
             if (el.getAttribute("id") == "p2-join-box" && gameStarted == false && p2User.userId == user.userId) {
             p2Joined = false;
@@ -108,6 +107,7 @@ AFRAME.registerComponent("join-game-p2", {
 
     })
         });
+            })
     }
 
 });
