@@ -93,10 +93,5 @@ function setupGame(){
   turnCounter = 0;
   shuffle(p1Deck);
   shuffle(p2Deck);
-  for (let i = 1; i < p1Deck.length; i++) {
-  fbRef.doc("Player 1 Cards").update({
-      i: p1Deck[i]
-  })
-  }
 };
 setupGame();
