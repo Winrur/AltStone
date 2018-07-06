@@ -128,6 +128,7 @@ AFRAME.registerComponent("start-game", {
                     gamestarted: gameStarted
                 })
         }
-}
+})
+    }
 
 });
