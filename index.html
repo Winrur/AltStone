@@ -7,16 +7,20 @@
   <script type="text/javascript" src="setup.js"></script>
   <script type="text/javascript" src="cardlist.js"></script>
   <script type="text/javascript" src="deck.js"></script>
-  <script>
-  	// Initialize Firebase
-  	firebase.initializeApp({
-  		apiKey: 'AIzaSyBwNbvo59xGQwlKzVV7xwjfKefmwtWoouw',
-  		authDomain: 'altstone-22863.firebaseapp.com',
-  		projectId: 'altstone-22863'
-	});
-	// Initialize Cloud Firestore through Firebase
-	var db = firebase.firestore();
-	var fbRef = db.collection("AltStone");
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCADiruFMZZvfta4OH6XXdV6QFjq7s2dyg",
+    authDomain: "altstone2-9b9c7.firebaseapp.com",
+    databaseURL: "https://altstone2-9b9c7.firebaseio.com",
+    projectId: "altstone2-9b9c7",
+    storageBucket: "altstone2-9b9c7.appspot.com",
+    messagingSenderId: "74033689068"
+  };
+  firebase.initializeApp(config);
+  // Initialize Cloud Firestore through Firebase
+  var db = firebase.firestore();
+  var fbRef = db.collection("AltStone");
  </script>
  <script type="text/javascript" src="game.js"></script>
  <script type="text/javascript" src="join-game-button.js"></script>
