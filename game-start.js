@@ -113,6 +113,13 @@
                 var el = this.el;
                 el.setAttribute("material", "color", "grey");
                 }
+         endTurnP1[0].object3D.addEventListener("cursordown", function(){
+            for (var i = 3; i <=6; i++){
+              if (cardP1Ref[i].getAttribute("material", "color") == "grey"){
+                cardP1Ref[i].setAttribute("visible", false);
+              }
+            }
+         });
               })
 
               cardP2Ref[i].setAttribute("visible", true);
@@ -121,15 +128,6 @@
                 var el = this.el;
                 el.setAttribute("material", "color", "grey");
                 }
-              })
-         }    
-         endTurnP1[0].object3D.addEventListener("cursordown", function(){
-            for (var i = 3; i <=6; i++){
-              if (cardP1Ref[i].getAttribute("material", "color") == "grey"){
-                cardP1Ref[i].setAttribute("visible", false);
-              }
-            }
-         });
          endTurnP2[0].object3D.addEventListener("cursordown", function(){
             for (var i = 3; i <=6; i++){
               if (cardP2Ref[i].getAttribute("material", "color") == "grey"){
@@ -137,6 +135,8 @@
               }
             }
          });
+              })
+         }    
 
       }
     })
