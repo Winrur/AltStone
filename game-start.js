@@ -65,13 +65,13 @@
           }
           console.log(userId);
          for(var i = 0; i <= 4; i++){
-          cardP1Ref[i].setAttribute("src", "#card-back");
-          cardP2Ref[i].setAttribute("src", "#card-back");
           if (p1Id == userId) {
               console.log("test");
               cardP1Ref[i].setAttribute("src", p1Deck[i].img);
+              cardP2Ref[i].setAttribute("src", "#card-back");
           } else if (p2Id == userId) {
             console.log("test");
+              cardP1Ref[i].setAttribute("src", "#card-back");
               cardP2Ref[i].setAttribute("src", p2Deck[i].img);
           }
          }  
