@@ -44,7 +44,6 @@
     var p2Id;
       fbRef.doc("Player 1").get().then(function(doc){
       p1Id = doc.data().userid;
-      console.log(userId);
     })
     fbRef.doc("Player 2").get().then(function(doc){
       p2Id = doc.data().userid;
@@ -54,12 +53,11 @@
       currentUserId = user.userId;
          for(var i = 0; i <= 4; i++){
           console.log(p1Id);
-          console.log(userId);
-          if (p1Id == userId) {
+          if (p1Id == currentUserId) {
               console.log("test");
               cardP1Ref[i].setAttribute("src", p1Deck[i].img);
               cardP2Ref[i].setAttribute("src", "#card-back");
-          } else if (p2Id == userId) {
+          } else if (p2Id == currentUserId) {
             console.log("test");
               cardP1Ref[i].setAttribute("src", "#card-back");
               cardP2Ref[i].setAttribute("src", p2Deck[i].img);
