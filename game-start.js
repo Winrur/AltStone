@@ -45,6 +45,7 @@
     altspace.getUser().then(function(user){
       userId = user.userId;
     })
+    console.log(userId);
     fbRef.doc("Player 1").get().then(function(doc){
       p1Id = doc.data().userid;
       console.log(p1Id);
