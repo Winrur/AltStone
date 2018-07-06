@@ -44,15 +44,19 @@
     function gameStartStuff () {
     altspace.getUser().then(function(user){
       currentUserId = user.userId;
+      fbRef.doc("Player 1").get().then(function(doc){
+        var data = doc.data();
+        p1Id = data.userid;
+      })
+      fbRef.doc("Player 2").get().then(function(doc){
+        var data = doc.data();
+        p2Id = data.userid;
+      })
          for(var i = 0; i <= 4; i++){
-          console.log(p1Id);
-          console.log(currentUserId);
           if (p1Id == currentUserId) {
-              console.log("test");
               cardP1Ref[i].setAttribute("src", p1Deck[i].img);
               cardP2Ref[i].setAttribute("src", "#card-back");
           } else if (p2Id == currentUserId) {
-            console.log("test");
               cardP1Ref[i].setAttribute("src", "#card-back");
               cardP2Ref[i].setAttribute("src", p2Deck[i].img);
             }
