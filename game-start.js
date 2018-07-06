@@ -39,15 +39,16 @@
     endTurnP2[0].setAttribute("visible", false);
     endTurnP2[1].setAttribute("visible", false);
     function gameStartStuff () {
-    var currentUserId;
-    var p1Id;
-    var p2Id;
+    var currentUserId = "id here";
+    var p1Id = "id here";
+    var p2Id = "id here";
       fbRef.doc("Player 1").get().then(function(doc){
-      p1Id = doc.data().userid;
+      var data = doc.data();
+      p1Id = data.userid;
     })
     fbRef.doc("Player 2").get().then(function(doc){
-      p2Id = doc.data().userid;
-      console.log(p2Id);
+      var data = doc.data();
+      p2Id = data.userid;
     })
     altspace.getUser().then(function(user){
       currentUserId = user.userId;
