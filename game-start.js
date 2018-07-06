@@ -63,13 +63,14 @@
               endTurnP1[i].setAttribute("visible", true);
               endTurnP2[i].setAttribute("visible", true);
           }
+          console.log(userId);
          for(var i = 0; i <= 4; i++){
           cardP1Ref[i].setAttribute("src", "#card-back");
           cardP2Ref[i].setAttribute("src", "#card-back");
           if (p1Id == userId) {
               console.log("test");
               cardP1Ref[i].setAttribute("src", p1Deck[i].img);
-          } if (p2Id == userId) {
+          } else if (p2Id == userId) {
             console.log("test");
               cardP2Ref[i].setAttribute("src", p2Deck[i].img);
           }
