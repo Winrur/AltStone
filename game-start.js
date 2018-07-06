@@ -39,12 +39,11 @@
     endTurnP2[0].setAttribute("visible", false);
     endTurnP2[1].setAttribute("visible", false);
     function gameStartStuff () {
-    var user;
+    var userId;
     var p1Id;
     var p2Id;
-    altspace.getUser().then(function(u){
-      user = u;
-      console.log(user.userId);
+    altspace.getUser().then(function(user){
+      userId = user.userId;
     })
     fbRef.doc("Player 1").get().then(function(doc){
       p1Id = doc.data().userid;
