@@ -48,11 +48,9 @@
         var data = doc.data();
         p1Id = data.userid;
         console.log(p1Id);
-      })
       fbRef.doc("Player 2").get().then(function(doc){
         var data = doc.data();
         p2Id = data.userid;
-      })
       console.log(p1Id);
       console.log(p1Id);
          for(var i = 0; i <= 4; i++){
@@ -64,6 +62,8 @@
               cardP2Ref[i].setAttribute("src", p2Deck[i].img);
             }
             }
+            })
+      })
     fbRef.doc("States").get().then(function(doc){
       var data = doc.data();
       if (data.gamestarted == true) {
