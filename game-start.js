@@ -95,7 +95,7 @@
          for(var i = 3; i <= 6; i++){
               cardP1Ref[i].setAttribute("visible", true);
               cardP1Ref[i].object3D.addEventListener("cursordown", function(){
-                if(this.el.getAttribute("src") != "#card-back"){
+                if(this.el.getAttribute("src") != "#card-back" && this.el.getAttribute("material", "color") != "grey"){
                 var el = this.el;
                 el.setAttribute("material", "color", "grey");
                 }
@@ -107,15 +107,13 @@
 
               cardP2Ref[i].setAttribute("visible", true);
               cardP2Ref[i].object3D.addEventListener("cursordown", function(){
-                if(clicked == false && this.el.getAttribute("src") != "#card-back"){
+                if(this.el.getAttribute("src") != "#card-back" && this.el.getAttribute("material", "color") != "grey"){
                 var el = this.el;
-                el.setAttribute("color", "grey");
-                clicked = true;
+                el.setAttribute("material", "color", "grey");
                 }
-                if(clicked == true){
+                if(this.el.getAttribute("material", "color") == "grey"){
                 var el = this.el;
-                el.setAttribute("color", "grey");
-                clicked = false;
+                el.setAttribute("material", "color", "white");
                 }
               })
          }     
