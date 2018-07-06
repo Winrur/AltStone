@@ -39,7 +39,7 @@
     endTurnP2[0].setAttribute("visible", false);
     endTurnP2[1].setAttribute("visible", false);
     function gameStartStuff () {
-    var userId;
+    var currentUserId;
     var p1Id;
     var p2Id;
       fbRef.doc("Player 1").get().then(function(doc){
@@ -51,7 +51,7 @@
       console.log(p2Id);
     })
     altspace.getUser().then(function(user){
-      userId = user.userId;
+      currentUserId = user.userId;
          for(var i = 0; i <= 4; i++){
           console.log(p1Id);
           console.log(userId);
@@ -63,6 +63,7 @@
             console.log("test");
               cardP1Ref[i].setAttribute("src", "#card-back");
               cardP2Ref[i].setAttribute("src", p2Deck[i].img);
+            }
             }
     fbRef.doc("States").get().then(function(doc){
       var data = doc.data();
@@ -82,7 +83,6 @@
 
       }
     })
-    }
 
     })
   for (var i = 0; i <= 28; i++) {
