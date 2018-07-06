@@ -1,5 +1,6 @@
     var p1Id;
     var p2Id;
+    var clicked = false;
     var cardP1Ref = document.getElementsByClassName("card-p1");
     cardP1Ref[0].setAttribute("visible", false); 
     cardP1Ref[1].setAttribute("visible", false);
@@ -91,7 +92,6 @@
               endTurnP1[i].setAttribute("visible", true);
               endTurnP2[i].setAttribute("visible", true);
           }
-          var clicked = false;
          for(var i = 3; i <= 6; i++){
               cardP1Ref[i].setAttribute("visible", true);
               cardP1Ref[i].object3D.addEventListener("cursordown", function(){
