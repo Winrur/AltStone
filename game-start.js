@@ -54,6 +54,7 @@
       p2Id = doc.data().userid;
       console.log(p2Id);
     })
+    console.log(user.userId);
     fbRef.doc("States").get().then(function(doc){
       var data = doc.data();
       if (data.gamestarted == true) {
