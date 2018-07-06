@@ -8,7 +8,6 @@ AFRAME.registerComponent("join-game-p1", {
         var p1JoinText = document.getElementById("join-game-p1-text");
         var p1User;
         fbRef.doc("Player 1").delete();
-        fbRef.doc("Player 2").delete();
         fbRef.doc("States").update({
             p1joined: p1Joined
         })
@@ -63,6 +62,7 @@ AFRAME.registerComponent("join-game-p2", {
         var el = this.el;
         var p2JoinText = document.getElementById("join-game-p2-text");
         var p2User;
+        fbRef.doc("Player 2").delete();
         fbRef.doc("States").update({
             p2joined: p2Joined
         })
@@ -120,16 +120,14 @@ AFRAME.registerComponent("start-game", {
         fbRef.doc("States").update({
             gamestarted: gameStarted
         })
-        if(p1Joined == true && p2Joined == true) {
+        fbRef.doc("States").onSnapshot(function(doc){
+            var data = doc.data();
+            if (data.p1joined == true && data.p2joined == true) {
                 gameStarted = true;
-        fbRef.doc("States").update({
-            gamestarted: gameStarted
-        })
-    }
-},
-   tick: function() {
-    console.log("P1Joined: " + p1Joined);
-    console.log("P2Joined: " + p2Joined);
-   }
+                fbRef.doc("States").update({
+                    gamestarted: gameStarted
+                })
+        }
+}
 
 });
