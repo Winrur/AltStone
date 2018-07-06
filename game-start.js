@@ -53,6 +53,7 @@
       currentUserId = user.userId;
          for(var i = 0; i <= 4; i++){
           console.log(p1Id);
+          console.log(currentUserId);
           if (p1Id == currentUserId) {
               console.log("test");
               cardP1Ref[i].setAttribute("src", p1Deck[i].img);
