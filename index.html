@@ -17,7 +17,6 @@
 	var db = firebase.firestore();
 	var fbRef = db.collection("AltStone");
  </script>
- <script type="text/javascript" src="game.js"></script>
  <script type="text/javascript" src="join-game-button.js"></script>
  <script>
     var turnCounter = 0
@@ -137,6 +136,7 @@ setupGame();
     var cardPlaceP2 = document.getElementsByClassName("card-place-p2");
     var manaP1 = document.getElementsByClassName("mana-p1");
     var manaP2 = document.getElementsByClassName("mana-p2");
+    var turn
     function gameStartStuff () {
     fbRef.doc("States").get().then(function(doc){
       var data = doc.data();
@@ -151,6 +151,7 @@ setupGame();
     for(var i = 0; i <= 10; i++){
       cards[i].setAttribute("src", druidDeck[i].img);
     }
+    gameStartStuff();
   </script>
 </html>
 
