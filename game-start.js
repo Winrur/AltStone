@@ -1,6 +1,13 @@
     var p1Id;
     var p2Id;
-    var clicked = false;
+    var p1ChooseInsText = document.getElementById("choose-ins-p1-text");
+    p1ChooseInsText.setAttribute("visible", false);
+    var p1ChooseCardsText = document.getElementById("choose-cards-p1-text");
+    p1ChooseCardsText.setAttribute("visible", false);
+    var p2ChooseInsText = document.getElementById("choose-ins-p2-text");
+    p2ChooseInsText.setAttribute("visible", false);
+    var p2ChooseCardsText = document.getElementById("choose-cards-p2-text");
+    p2ChooseCardsText.setAttribute("visible", false);
     var cardP1Ref = document.getElementsByClassName("card-p1");
     cardP1Ref[0].setAttribute("visible", false); 
     cardP1Ref[1].setAttribute("visible", false);
@@ -74,9 +81,13 @@
           if (p1Id == currentUserId) {
               cardP1Ref[i].setAttribute("src", p1Deck[i].img);
               cardP1Ref[i].setAttribute("rotation", "270 180");
+              p1ChooseInsText.setAttribute("visible", true);
+              p1ChooseCardsText.setAttribute("visible", false);
           } else if (p2Id == currentUserId) {
               cardP2Ref[i].setAttribute("src", p2Deck[i].img);
               cardP2Ref[i].setAttribute("rotation", "270 0");
+              p2ChooseInsText.setAttribute("visible", true);
+              p2ChooseCardsText.setAttribute("visible", false);
             }
             }
             })
@@ -98,10 +109,6 @@
                 if(this.el.getAttribute("src") != "#card-back" && this.el.getAttribute("material", "color") != "grey"){
                 var el = this.el;
                 el.setAttribute("material", "color", "grey");
-                } else if(this.el.getAttribute("material", "color") == "grey"){
-                var el = this.el;
-                el.setAttribute("material", "color", "white");
-                console.log("test");
                 }
               })
 
@@ -110,9 +117,6 @@
                 if(this.el.getAttribute("src") != "#card-back" && this.el.getAttribute("material", "color") != "grey"){
                 var el = this.el;
                 el.setAttribute("material", "color", "grey");
-                } else if(this.el.getAttribute("material", "color") == "grey"){
-                var el = this.el;
-                el.setAttribute("material", "color", "white");
                 }
               })
          }     
