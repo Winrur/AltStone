@@ -113,7 +113,8 @@
                 var el = this.el;
                 el.setAttribute("material", "color", "grey");
                 }
-         endTurnP1[0].object3D.addEventListener("cursordown", function(){
+              })
+           endTurnP1[0].object3D.addEventListener("cursordown", function(){
           console.log("test");
             for (var i = 3; i <=6; i++){
               if (cardP1Ref[i].getAttribute("material", "color") == "grey"){
@@ -121,15 +122,14 @@
               }
             }
          });
-              })
-
               cardP2Ref[i].setAttribute("visible", true);
               cardP2Ref[i].object3D.addEventListener("cursordown", function(){
                 if(this.el.getAttribute("src") != "#card-back" && this.el.getAttribute("material", "color") != "grey"){
                 var el = this.el;
                 el.setAttribute("material", "color", "grey");
                 }
-         endTurnP2[0].object3D.addEventListener("cursordown", function(){
+              })
+           endTurnP2[0].object3D.addEventListener("cursordown", function(){
           console.log("test");
             for (var i = 3; i <=6; i++){
               if (cardP2Ref[i].getAttribute("material", "color") == "grey"){
@@ -137,7 +137,6 @@
               }
             }
          });
-              })
          }    
 
       }
