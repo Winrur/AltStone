@@ -19,7 +19,7 @@ AFRAME.registerComponent("join-game-p1", {
                 p1JoinText.setAttribute("visible", false);
         }
             if (data.p1joined == false) {
-                el.setAttribute("material", "opacity", 0.4);
+                el.setAttribute("material", "opacity", 0.2);
                 p1JoinText.setAttribute("visible", true);
         }
         })
@@ -73,7 +73,7 @@ AFRAME.registerComponent("join-game-p2", {
                 p2JoinText.setAttribute("visible", false);
         }
             if (data.p2joined == false) {
-                el.setAttribute("material", "opacity", 0.4);
+                el.setAttribute("material", "opacity", 0.2);
                 p2JoinText.setAttribute("visible", true);
         }
         })
@@ -121,16 +121,10 @@ AFRAME.registerComponent("start-game", {
             gamestarted: gameStarted
         })
         if(p1Joined == true && p2Joined == true) {
-        fbRef.doc("States").get().then(function(doc){
-            var data = doc.data();
-            if (data.p1joined == true && data.p2joined == true) {
                 gameStarted = true;
         fbRef.doc("States").update({
             gamestarted: gameStarted
         })
-            }
-        })
-        }
     }
 
 });
