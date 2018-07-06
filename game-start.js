@@ -1,3 +1,5 @@
+    var p1Id;
+    var p2Id;
     var cardP1Ref = document.getElementsByClassName("card-p1");
     cardP1Ref[0].setAttribute("visible", false); 
     cardP1Ref[1].setAttribute("visible", false);
@@ -38,15 +40,14 @@
     var endTurnP2 = document.getElementsByClassName("end-turn-p2");
     endTurnP2[0].setAttribute("visible", false);
     endTurnP2[1].setAttribute("visible", false);
-    var currentUserId = "id here";
-    var p1Id = "id here";
-    var p2Id = "id here";
+    var currentUserId;
     function gameStartStuff () {
     altspace.getUser().then(function(user){
       currentUserId = user.userId;
       fbRef.doc("Player 1").get().then(function(doc){
         var data = doc.data();
         p1Id = data.userid;
+        console.log(p1Id);
       })
       fbRef.doc("Player 2").get().then(function(doc){
         var data = doc.data();
@@ -55,11 +56,11 @@
       console.log(p1Id);
       console.log(p1Id);
          for(var i = 0; i <= 4; i++){
+          cardP1Ref[i].setAttribute("src", "#card-back");
+          cardP2Ref[i].setAttribute("src", "#card-back");
           if (p1Id == currentUserId) {
               cardP1Ref[i].setAttribute("src", p1Deck[i].img);
-              cardP2Ref[i].setAttribute("src", "#card-back");
           } else if (p2Id == currentUserId) {
-              cardP1Ref[i].setAttribute("src", "#card-back");
               cardP2Ref[i].setAttribute("src", p2Deck[i].img);
             }
             }
