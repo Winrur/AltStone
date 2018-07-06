@@ -63,8 +63,9 @@
               endTurnP1[i].setAttribute("visible", true);
               endTurnP2[i].setAttribute("visible", true);
           }
-          console.log(userId);
          for(var i = 0; i <= 4; i++){
+          console.log(p1Id);
+          console.log(userId);
           if (p1Id == userId) {
               console.log("test");
               cardP1Ref[i].setAttribute("src", p1Deck[i].img);
@@ -73,9 +74,7 @@
             console.log("test");
               cardP1Ref[i].setAttribute("src", "#card-back");
               cardP2Ref[i].setAttribute("src", p2Deck[i].img);
-          }
-         }  
-         for(var i = 0; i <= 4; i++){
+            }
               cardP1Ref[i].setAttribute("visible", true);
               cardP2Ref[i].setAttribute("visible", true);
          }     
