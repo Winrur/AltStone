@@ -100,6 +100,7 @@
                 el.setAttribute("color", "grey");
                 clicked = true;
                 }
+                console.log(clicked);
                 if(clicked == true){
                 var el = this.el;
                 el.setAttribute("color", "grey");
