@@ -38,10 +38,10 @@
     var endTurnP2 = document.getElementsByClassName("end-turn-p2");
     endTurnP2[0].setAttribute("visible", false);
     endTurnP2[1].setAttribute("visible", false);
-    function gameStartStuff () {
     var currentUserId = "id here";
     var p1Id = "id here";
     var p2Id = "id here";
+    function gameStartStuff () {
       fbRef.doc("Player 1").get().then(function(doc){
       var data = doc.data();
       p1Id = data.userid;
