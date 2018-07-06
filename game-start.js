@@ -44,9 +44,7 @@
     var p2Id;
     altspace.getUser().then(function(user){
       userId = user.userId;
-    })
-    console.log(userId);
-    fbRef.doc("Player 1").get().then(function(doc){
+      fbRef.doc("Player 1").get().then(function(doc){
       p1Id = doc.data().userid;
       console.log(p1Id);
     })
@@ -82,6 +80,8 @@
          }     
 
       }
+    })
+
     })
   for (var i = 0; i <= 28; i++) {
     console.log(p1Deck[i].cardType);
