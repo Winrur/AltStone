@@ -109,11 +109,11 @@
           }
           console.log(i);
           endTurnP1[0].object3D.addEventListener("cursordown", function(){
-              var card1 = cardP1Ref[3].getAttribute("material").opacity;
-              var card2 = cardP1Ref[4].getAttribute("material").opacity;
-              var card3 = cardP1Ref[5].getAttribute("material").opacity;
-              var card4 = cardP1Ref[6].getAttribute("material").opacity;
-            if(card1 == "0.5") {
+              var card1P1 = cardP1Ref[3].getAttribute("material").opacity;
+              var card2P1 = cardP1Ref[4].getAttribute("material").opacity;
+              var card3P1 = cardP1Ref[5].getAttribute("material").opacity;
+              var card4P1 = cardP1Ref[6].getAttribute("material").opacity;
+            if(card1P1 == "0.5") {
               cardP1Ref[3].setAttribute("animation", "dir", "normal");
               cardP1Ref[3].emit("move-card-3-p1");
               cardP1Ref[3].addEventListener("animationcomplete", function(anim){
@@ -121,21 +121,21 @@
                 cardP1Ref[3].setAttribute("visible", false);
               });
             }
-            if(card2 == "0.5") {
+            if(card2P1 == "0.5") {
               cardP1Ref[4].setAttribute("animation", "dir", "normal");
               cardP1Ref[4].emit("move-card-4-p1");
               cardP1Ref[4].addEventListener("animationcomplete", function(){
                 cardP1Ref[4].setAttribute("visible", false);
               });
             }
-            if(card3 == "0.5") {
+            if(card3P1 == "0.5") {
               cardP1Ref[5].setAttribute("animation", "dir", "normal");
               cardP1Ref[5].emit("move-card-5-p1");
               cardP1Ref[5].addEventListener("animationcomplete", function(){
                 cardP1Ref[5].setAttribute("visible", false);
               });
             }
-            if(card4 == "0.5") {
+            if(card4P1 == "0.5") {
               cardP1Ref[6].setAttribute("animation", "dir", "normal");
               cardP1Ref[6].emit("move-card-6-p1");
               cardP1Ref[6].addEventListener("animationcomplete", function(){
@@ -144,11 +144,11 @@
             }
          });
           endTurnP2[0].object3D.addEventListener("cursordown", function(){
-              var card1 = cardP2Ref[3].getAttribute("material").opacity;
-              var card2 = cardP2Ref[4].getAttribute("material").opacity;
-              var card3 = cardP2Ref[5].getAttribute("material").opacity;
-              var card4 = cardP2Ref[6].getAttribute("material").opacity;
-            if(card1 == "0.5") {
+              var card1P1 = cardP2Ref[3].getAttribute("material").opacity;
+              var card2P1 = cardP2Ref[4].getAttribute("material").opacity;
+              var card3P1 = cardP2Ref[5].getAttribute("material").opacity;
+              var card4P1 = cardP2Ref[6].getAttribute("material").opacity;
+            if(card1P2 == "0.5") {
               cardP2Ref[3].setAttribute("animation", "dir", "normal");
               cardP2Ref[3].emit("move-card-3-p2");
               cardP2Ref[3].addEventListener("animationcomplete", function(anim){
@@ -156,21 +156,21 @@
                 cardP2Ref[3].setAttribute("visible", false);
               });
             }
-            if(card2 == "0.5") {
+            if(card2P2 == "0.5") {
               cardP2Ref[4].setAttribute("animation", "dir", "normal");
               cardP2Ref[4].emit("move-card-4-p2");
               cardP2Ref[4].addEventListener("animationcomplete", function(){
                 cardP2Ref[4].setAttribute("visible", false);
               });
             }
-            if(card3 == "0.5") {
+            if(card3P2 == "0.5") {
               cardP2Ref[5].setAttribute("animation", "dir", "normal");
               cardP2Ref[5].emit("move-card-5-p2");
               cardP2Ref[5].addEventListener("animationcomplete", function(){
                 cardP2Ref[5].setAttribute("visible", false);
               });
             }
-            if(card4 == "0.5") {
+            if(card4P2 == "0.5") {
               cardP2Ref[6].setAttribute("animation", "dir", "normal");
               cardP2Ref[6].emit("move-card-6-p2");
               cardP2Ref[6].addEventListener("animationcomplete", function(){
