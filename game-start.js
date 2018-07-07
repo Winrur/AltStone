@@ -228,17 +228,18 @@
               //P1
               var toggleP1 = [];
               var toggleP2 = [];
-              var currentIndex;
+              var currentIndexP1;
+              var currentIndexP2;
               for (i = 3; i <= 6; i++) {
                 toggleP1[i] = false;
-                currentIndex = toggleP1[i];
+                currentIndexP1 = toggleP1[i];
               cardP1Ref[i].object3D.addEventListener("cursordown", function(){
                 var el = this.el;
-                if(el.getAttribute("src") != "#card-back" && currentIndex == false) {
+                if(el.getAttribute("src") != "#card-back" && currentIndexP1 == false) {
                   el.setAttribute("material", "opacity", 0.5);
                   toggleP1[i] = true;
-                  currentIndex = toggleP1[i];
-                } else if(el.getAttribute("src") != "#card-back" && currentIndex == true){
+                  currentIndexP1 = toggleP1[i];
+                } else if(el.getAttribute("src") != "#card-back" && currentIndexP1 == true){
                   el.setAttribute("material", "opacity", 1);
                   toggleP1[i] = false;
                   currentIndex = toggleP1[i];
@@ -248,17 +249,17 @@
               //P2
               for (i = 3; i <= 6; i++) {
                 toggleP2[i] = false;
-                currentIndex = toggleP2[i];
+                currentIndexP2 = toggleP2[i];
               cardP2Ref[i].object3D.addEventListener("cursordown", function(){
                 var el = this.el;
-                if(el.getAttribute("src") != "#card-back" && currentIndex == false) {
+                if(el.getAttribute("src") != "#card-back" && currentIndexP2 == false) {
                   el.setAttribute("material", "opacity", 0.5);
                   toggleP2[i] = true;
-                  currentIndex = toggleP2[i];
-                } else if(el.getAttribute("src") != "#card-back" && currentIndex == true){
+                  currentIndexP2 = toggleP2[i];
+                } else if(el.getAttribute("src") != "#card-back" && currentIndexP2 == true){
                   el.setAttribute("material", "opacity", 1);
                   toggleP2[i] = false;
-                  currentIndex = toggleP1[i];
+                  currentIndexP2 = toggleP1[i];
                 }
               })
               }
