@@ -243,7 +243,7 @@
                 } else if(el.getAttribute("src") != "#card-back" && currentIndexP1 == true){
                   el.setAttribute("material", "opacity", 1);
                   toggleP1[i] = false;
-                  currentIndex = toggleP1[i];
+                  currentIndexP1 = toggleP1[i];
                 }
               })
               }
@@ -260,7 +260,7 @@
                 } else if(el.getAttribute("src") != "#card-back" && currentIndexP2 == true){
                   el.setAttribute("material", "opacity", 1);
                   toggleP2[i] = false;
-                  currentIndexP2 = toggleP1[i];
+                  currentIndexP2 = toggleP2[i];
                 }
               })
               }
