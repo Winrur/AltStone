@@ -186,7 +186,7 @@
               cardP1Ref[i].setAttribute("animation", "dir", "reverse");
               cardP2Ref[i].setAttribute("animation", "dir", "reverse");
               cardP1Ref[i].emit("move-card-" + i + "-p1");
-              cardP2Ref[i].emit("move-card-" + i + "-p1");
+              cardP2Ref[i].emit("move-card-" + i + "-p2");
               }
     }
     })
