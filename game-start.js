@@ -206,7 +206,7 @@
                 cardP2Ref[3].setAttribute("visible", false);
                 endTurnP2[1].setAttribute("visible", false);
               });
-            }
+            })
             if(card2P2 == "0.5") {
               database.ref("Player 2/Cards" + i.toString()).on("value", function(snap){
                 var val = snap.val();
@@ -216,7 +216,7 @@
                 cardP2Ref[4].setAttribute("visible", false);
                 endTurnP2[1].setAttribute("visible", false);
               });
-            }
+            })
             if(card3P2 == "0.5") {
               database.ref("Player 2/Cards" + i.toString()).on("value", function(snap){
                 var val = snap.val();
@@ -226,7 +226,7 @@
                 cardP2Ref[5].setAttribute("visible", false);
                 endTurnP2[1].setAttribute("visible", false);
               });
-            }
+            })
             if(card4P2 == "0.5") {  
               cardP2Ref[6].setAttribute("animation", "dir", "normal");
               cardP2Ref[6].emit("move-card-6-p2");
@@ -235,7 +235,7 @@
                 endTurnP2[1].setAttribute("visible", false);
               });
             }
-         });
+            }
           for(var i = 3; i < 7; i++){
               database.ref("Player 1/Cards" + i.toString()).on("value", function(snap){
                 var val = snap.val();
