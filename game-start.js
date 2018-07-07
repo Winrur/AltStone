@@ -313,6 +313,26 @@
               })
               }
 
+}
+})
+})
+}
+function animCheck () {
+  for (var i = 0; i <= 28; i++) {
+  database.ref("Player 1/Cards" + i.toString()).once("value").then(function(snap){
+    var val = snap.val();
+    if(val.anim == true){
+      cardP1Ref[i].emit("move-card-" + i + "-p1");
+   }  
+})
+  database.ref("Player 2/Cards" + i.toString()).once("value").then(function(snap){
+    var val = snap.val();
+    if(val.anim == true){
+      cardP1Ref[i].emit("move-card-" + i + "-p2");
+   }  
+})
+}
+}
 function coinFlip () {
   var p1Flip;
   var p2Flip;
@@ -343,24 +363,4 @@ if (flip == 0) {
 }
   })
 })
-}
-}
-})
-})
-}
-function animCheck () {
-  for (var i = 0; i <= 28; i++) {
-  database.ref("Player 1/Cards" + i.toString()).once("value").then(function(snap){
-    var val = snap.val();
-    if(val.anim == true){
-      cardP1Ref[i].emit("move-card-" + i + "-p1");
-   }  
-})
-  database.ref("Player 2/Cards" + i.toString()).once("value").then(function(snap){
-    var val = snap.val();
-    if(val.anim == true){
-      cardP1Ref[i].emit("move-card-" + i + "-p2");
-   }  
-})
-}
 }
