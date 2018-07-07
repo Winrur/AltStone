@@ -111,7 +111,6 @@
   })
   } 
 }
-    }
       coinFlip();
     altspace.getUser().then(function(user){
       currentUserId = user.userId;
@@ -330,4 +329,5 @@ if (flip == 0) {
 }
   })
 })
+}
 }
