@@ -144,10 +144,10 @@
             }
          });
           endTurnP2[0].object3D.addEventListener("cursordown", function(){
-              var card1P1 = cardP2Ref[3].getAttribute("material").opacity;
-              var card2P1 = cardP2Ref[4].getAttribute("material").opacity;
-              var card3P1 = cardP2Ref[5].getAttribute("material").opacity;
-              var card4P1 = cardP2Ref[6].getAttribute("material").opacity;
+              var card1P2 = cardP2Ref[3].getAttribute("material").opacity;
+              var card2P2 = cardP2Ref[4].getAttribute("material").opacity;
+              var card3P2 = cardP2Ref[5].getAttribute("material").opacity;
+              var card4P2 = cardP2Ref[6].getAttribute("material").opacity;
             if(card1P2 == "0.5") {
               cardP2Ref[3].setAttribute("animation", "dir", "normal");
               cardP2Ref[3].emit("move-card-3-p2");
