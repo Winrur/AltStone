@@ -75,6 +75,43 @@
     var currentUserId;
     console.log(p1Deck);
     function gameStartStuff () {
+ for (var i = 0; i <= 28; i++) {
+    if (p1Deck[i].cardType != "Spell") {
+  database.ref("Player 1/Cards" + i.toString()).set({
+    cardid: i,
+    name: p1Deck[i].cardName,
+    cost: p1Deck[i].cost,
+    health: p1Deck[i].health,
+    attack: p1Deck[i].attack,
+    anim: false 
+  }) 
+} else {
+  database.ref("Player 1/Cards" + i.toString()).set({
+    cardid: i,
+    name: p1Deck[i].cardName,
+    cost: p1Deck[i].cost,
+    anim: false 
+  })
+  } 
+    if (p2Deck[i].cardType != "Spell") {
+  database.ref("Player 2/Cards" + i.toString()).set({
+    cardid: i,
+    name: p2Deck[i].cardName,
+    cost: p2Deck[i].cost,
+    health: p2Deck[i].health,
+    attack: p2Deck[i].attack,
+    anim: false     
+  }) 
+} else {
+  database.ref("Player 2/Cards" + i.toString()).set({
+    cardid: i,
+    name: p2Deck[i].cardName,
+    cost: p2Deck[i].cost,
+    anim: false 
+  })
+  } 
+}
+    }
       coinFlip();
     altspace.getUser().then(function(user){
       currentUserId = user.userId;
@@ -221,43 +258,6 @@
     })
 
     })
-  for (var i = 0; i <= 28; i++) {
-    if (p1Deck[i].cardType != "Spell") {
-  database.ref("Player 1/Cards" + i.toString()).set({
-    cardid: i,
-    name: p1Deck[i].cardName,
-    cost: p1Deck[i].cost,
-    health: p1Deck[i].health,
-    attack: p1Deck[i].attack,
-    anim: false 
-  }) 
-} else {
-  database.ref("Player 1/Cards" + i.toString()).set({
-    cardid: i,
-    name: p1Deck[i].cardName,
-    cost: p1Deck[i].cost,
-    anim: false 
-  })
-  } 
-    if (p2Deck[i].cardType != "Spell") {
-  database.ref("Player 2/Cards" + i.toString()).set({
-    cardid: i,
-    name: p2Deck[i].cardName,
-    cost: p2Deck[i].cost,
-    health: p2Deck[i].health,
-    attack: p2Deck[i].attack,
-    anim: false     
-  }) 
-} else {
-  database.ref("Player 2/Cards" + i.toString()).set({
-    cardid: i,
-    name: p2Deck[i].cardName,
-    cost: p2Deck[i].cost,
-    anim: false 
-  })
-  } 
-}
-    }
               //P1
               var toggleP1 = [];
               var toggleP2 = [];
