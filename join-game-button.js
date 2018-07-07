@@ -113,6 +113,7 @@ AFRAME.registerComponent("join-game-p2", {
     })
                 }
     })
+    })
     }
 
 });
