@@ -4,7 +4,7 @@
     var timeout;
     var p1DeckBox = document.getElementById("p1-deck-box");
     var p1DeckBoxRef = p1DeckBox.getAttribute("position");
-    p1DeckBoxPos = p1DeckBoxPosRef.x.toString() + " " + p1DeckBoxPosRef.y.toString() + " " + p1DeckBoxPosRef.z.toString();
+    p1DeckBoxPos = p1DeckBoxRef.x.toString() + " " + p1DeckBoxRef.y.toString() + " " + p1DeckBoxRef.z.toString();
     var p1ChooseInsText = document.getElementById("choose-ins-p1-text");
     p1ChooseInsText.setAttribute("visible", false);
     var p1ChooseCardsText = document.getElementById("choose-cards-p1-text");
