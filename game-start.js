@@ -2,7 +2,6 @@
     var p2Id;
     var arrayOfCards = [];
     var timeout;
-    var checkForAnimation;
     var p1DeckBox = document.getElementById("p1-deck-box");
     var p1DeckBoxRef = p1DeckBox.getAttribute("position");
     p1DeckBoxPos = `${p1DeckBoxRef.x} ${p1DeckBoxRef.y} ${p1DeckBoxRef.z}`;
@@ -188,9 +187,6 @@
                 endTurnP1[1].setAttribute("visible", false);
               });
             }
-                  database.ref("Player 1/Cards" + i.toString()).update({
-                    anim: true
-                  })   
          });
           endTurnP2[0].object3D.addEventListener("cursordown", function(){
               var card1P2 = cardP2Ref[3].getAttribute("material").opacity;
@@ -198,8 +194,6 @@
               var card3P2 = cardP2Ref[5].getAttribute("material").opacity;
               var card4P2 = cardP2Ref[6].getAttribute("material").opacity;
             if(card1P2 == "0.5") {
-              database.ref("Player 2/Cards" + i.toString()).on("value", function(snap){
-                var val = snap.val();
               cardP2Ref[3].setAttribute("animation", "dir", "normal");
               cardP2Ref[3].emit("move-card-3-p2");
               cardP2Ref[3].addEventListener("animationcomplete", function(anim){
@@ -207,28 +201,24 @@
                 cardP2Ref[3].setAttribute("visible", false);
                 endTurnP2[1].setAttribute("visible", false);
               });
-            })
+            }
             if(card2P2 == "0.5") {
-              database.ref("Player 2/Cards" + i.toString()).on("value", function(snap){
-                var val = snap.val();
               cardP2Ref[4].setAttribute("animation", "dir", "normal");
               cardP2Ref[4].emit("move-card-4-p2");
               cardP2Ref[4].addEventListener("animationcomplete", function(){
                 cardP2Ref[4].setAttribute("visible", false);
                 endTurnP2[1].setAttribute("visible", false);
               });
-            })
+            }
             if(card3P2 == "0.5") {
-              database.ref("Player 2/Cards" + i.toString()).on("value", function(snap){
-                var val = snap.val();
               cardP2Ref[5].setAttribute("animation", "dir", "normal");
               cardP2Ref[5].emit("move-card-5-p2");
               cardP2Ref[5].addEventListener("animationcomplete", function(){
                 cardP2Ref[5].setAttribute("visible", false);
                 endTurnP2[1].setAttribute("visible", false);
               });
-            })
-            if(card4P2 == "0.5") {  
+            }
+            if(card4P2 == "0.5") {
               cardP2Ref[6].setAttribute("animation", "dir", "normal");
               cardP2Ref[6].emit("move-card-6-p2");
               cardP2Ref[6].addEventListener("animationcomplete", function(){
@@ -236,24 +226,18 @@
                 endTurnP2[1].setAttribute("visible", false);
               });
             }
-            }
+         });
           for(var i = 3; i < 7; i++){
               database.ref("Player 1/Cards" + i.toString()).on("value", function(snap){
                 var val = snap.val();
                 if(val.anim == true){
                   cardP1Ref[i].emit("move-card-" + i + "-p1");
-                    database.ref("Player 1/Cards" + i.toString()).update({
-                      anim: false
-                    })
                 }     
               })
               database.ref("Player 2/Cards" + i.toString()).on("value", function(snap){
                 var val = snap.val();
                 if(val.anim == true){
                   cardP2Ref[i].emit("move-card-" + i + "-p2");
-                    database.ref("Player 2/Cards" + i.toString()).update({
-                      anim: false
-                    })
                 }     
               })
               cardP1Ref[i].setAttribute("visible", "true");
@@ -270,7 +254,7 @@
               })
               }
     }
-    }
+    })
 
     })
               //P1
@@ -279,7 +263,7 @@
               var currentIndexP1;
               var currentIndexP2;
               for (i = 3; i <= 6; i++) {
-                checkForAnimation = setInterval(animCheck, 2000);
+                }
                 toggleP1[i] = false;
                 currentIndexP1 = toggleP1[i];
               cardP1Ref[i].object3D.addEventListener("cursordown", function(snap){
@@ -288,13 +272,12 @@
                   el.setAttribute("material", "opacity", 0.5);
                   toggleP1[i] = true;
                   currentIndexP1 = toggleP1[i];
-                } else if(el.getAttribute("src") != "#card-back" && currentIndexP1 == true) {
+                } else if(el.getAttribute("src") != "#card-back" && currentIndexP1 == true){
                   el.setAttribute("material", "opacity", 1);
                   toggleP1[i] = false;
                   currentIndexP1 = toggleP1[i];
                 }
               })
-              }
               //P2
               for (i = 3; i <= 6; i++) {
                 toggleP2[i] = false;
@@ -312,27 +295,10 @@
                 }
               })
               }
+function gameplay () {
+  var turn = 0;
+}
 
-}
-})
-})
-}
-function animCheck () {
-  for (var i = 0; i <= 28; i++) {
-  database.ref("Player 1/Cards" + i.toString()).once("value").then(function(snap){
-    var val = snap.val();
-    if(val.anim == true){
-      cardP1Ref[i].emit("move-card-" + i + "-p1");
-   }  
-})
-  database.ref("Player 2/Cards" + i.toString()).once("value").then(function(snap){
-    var val = snap.val();
-    if(val.anim == true){
-      cardP1Ref[i].emit("move-card-" + i + "-p2");
-   }  
-})
-}
-}
 function coinFlip () {
   var p1Flip;
   var p2Flip;
@@ -363,4 +329,5 @@ if (flip == 0) {
 }
   })
 })
+}
 }
