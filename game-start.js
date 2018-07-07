@@ -3,8 +3,8 @@
     var arrayOfCards = [];
     var timeout;
     var p1DeckBox = document.getElementById("p1-deck-box");
-    var p1DeckBoxPos = p1DeckBox.getAttribute("position");
-    p1DeckBoxPos = p1DeckBoxPos.x.toString() + " " + p1DeckBoxPos.y.toString() + " " + p1DeckBoxPos.z.toString();
+    var p1DeckBoxRef = p1DeckBox.getAttribute("position");
+    p1DeckBoxPos = p1DeckBoxPosRef.x.toString() + " " + p1DeckBoxPosRef.y.toString() + " " + p1DeckBoxPosRef.z.toString();
     var p1ChooseInsText = document.getElementById("choose-ins-p1-text");
     p1ChooseInsText.setAttribute("visible", false);
     var p1ChooseCardsText = document.getElementById("choose-cards-p1-text");
@@ -188,7 +188,6 @@
               cardP1Ref[i].emit("move-card-" + i + "-p1");
               cardP2Ref[i].emit("move-card-" + i + "-p1");
               }
-
     }
     })
 
