@@ -155,15 +155,6 @@
               var card3P1 = cardP1Ref[5].getAttribute("material").opacity;
               var card4P1 = cardP1Ref[6].getAttribute("material").opacity;
             if(card1P1 == "0.5") {
-              database.ref("Player 1/Cards" + i.toString()).on("value", function(snap){
-                var val = snap.val();
-                if(val.anim == true){
-                  cardP1Ref[i].emit("move-card-3-p1");
-                  database.ref("Player 1/Cards" + i.toString()).update({
-                    anim: false
-                  })
-                }     
-              })
               cardP1Ref[3].setAttribute("animation", "dir", "normal");
               cardP1Ref[3].emit("move-card-3-p1");
               cardP1Ref[3].addEventListener("animationcomplete", function(anim){
@@ -173,18 +164,6 @@
               });
             }
             if(card2P1 == "0.5") {
-              database.ref("Player 1/Cards" + i.toString()).on("value", function(snap){
-                var val = snap.val();
-                if(val.anim == true){
-                  cardP1Ref[i].emit("move-card-4-p1");
-                  database.ref("Player 1/Cards" + i.toString()).update({
-                    anim: false
-                  })
-                }
-                  database.ref("Player 1/Cards" + i.toString()).update({
-                    anim: true
-                  })     
-              })
               cardP1Ref[4].setAttribute("animation", "dir", "normal");
               cardP1Ref[4].emit("move-card-4-p1");
               cardP1Ref[4].addEventListener("animationcomplete", function(){
@@ -193,18 +172,6 @@
               });
             }
             if(card3P1 == "0.5") {
-              database.ref("Player 1/Cards" + i.toString()).on("value", function(snap){
-                var val = snap.val();
-                if(val.anim == true){
-                  cardP1Ref[i].emit("move-card-5-p1");
-                  database.ref("Player 1/Cards" + i.toString()).update({
-                    anim: false
-                  })
-                }   
-                  database.ref("Player 1/Cards" + i.toString()).update({
-                    anim: true
-                  })     
-              })
               cardP1Ref[5].setAttribute("animation", "dir", "normal");
               cardP1Ref[5].emit("move-card-5-p1");
               cardP1Ref[5].addEventListener("animationcomplete", function(){
@@ -213,18 +180,6 @@
               });
             }
             if(card4P1 == "0.5") {
-              database.ref("Player 1/Cards" + i.toString()).on("value", function(snap){
-                var val = snap.val();
-                if(val.anim == true){
-                  cardP1Ref[i].emit("move-card-6-p1");
-                  database.ref("Player 1/Cards" + i.toString()).update({
-                    anim: false
-                  })
-                }   
-                  database.ref("Player 1/Cards" + i.toString()).update({
-                    anim: true
-                  })     
-              })
               cardP1Ref[6].setAttribute("animation", "dir", "normal");
               cardP1Ref[6].emit("move-card-6-p1");
               cardP1Ref[6].addEventListener("animationcomplete", function(){
@@ -244,16 +199,6 @@
             if(card1P2 == "0.5") {
               database.ref("Player 2/Cards" + i.toString()).on("value", function(snap){
                 var val = snap.val();
-                if(val.anim == true){
-                  cardP1Ref[i].emit("move-card-3-p2");
-                  database.ref("Player 1/Cards" + i.toString()).update({
-                    anim: false
-                  })
-                }   
-                  database.ref("Player 2/Cards" + i.toString()).update({
-                    anim: true
-                  })     
-              })
               cardP2Ref[3].setAttribute("animation", "dir", "normal");
               cardP2Ref[3].emit("move-card-3-p2");
               cardP2Ref[3].addEventListener("animationcomplete", function(anim){
@@ -265,16 +210,6 @@
             if(card2P2 == "0.5") {
               database.ref("Player 2/Cards" + i.toString()).on("value", function(snap){
                 var val = snap.val();
-                if(val.anim == true){
-                  cardP1Ref[i].emit("move-card-4-p2");
-                  database.ref("Player 1/Cards" + i.toString()).update({
-                    anim: false
-                  })
-                }  
-                  database.ref("Player 2/Cards" + i.toString()).update({
-                    anim: true
-                  })        
-              })
               cardP2Ref[4].setAttribute("animation", "dir", "normal");
               cardP2Ref[4].emit("move-card-4-p2");
               cardP2Ref[4].addEventListener("animationcomplete", function(){
@@ -285,16 +220,6 @@
             if(card3P2 == "0.5") {
               database.ref("Player 2/Cards" + i.toString()).on("value", function(snap){
                 var val = snap.val();
-                if(val.anim == true){
-                  cardP1Ref[i].emit("move-card-4-p2");
-                  database.ref("Player 1/Cards" + i.toString()).update({
-                    anim: false
-                  })
-                }   
-                  database.ref("Player 2/Cards" + i.toString()).update({
-                    anim: true
-                  })       
-              })
               cardP2Ref[5].setAttribute("animation", "dir", "normal");
               cardP2Ref[5].emit("move-card-5-p2");
               cardP2Ref[5].addEventListener("animationcomplete", function(){
@@ -302,19 +227,7 @@
                 endTurnP2[1].setAttribute("visible", false);
               });
             }
-            if(card4P2 == "0.5") {
-              database.ref("Player 2/Cards" + i.toString()).on("value", function(snap){
-                var val = snap.val();
-                if(val.anim == true){
-                  cardP1Ref[i].emit("move-card-6-p2");
-                  database.ref("Player 1/Cards" + i.toString()).update({
-                    anim: false
-                  })
-                }    
-                  database.ref("Player 2/Cards" + i.toString()).update({
-                    anim: true
-                  })      
-              })
+            if(card4P2 == "0.5") {  
               cardP2Ref[6].setAttribute("animation", "dir", "normal");
               cardP2Ref[6].emit("move-card-6-p2");
               cardP2Ref[6].addEventListener("animationcomplete", function(){
@@ -397,8 +310,21 @@
                 }
               })
               }
-function gameplay () {
-  var turn = 0;
+function animCheck () {
+  for (var i = 0; i <= 28; i++) {
+  database.ref("Player 1/Cards" + i.toString()).once("value").then(function(snap){
+    var val = snap.val();
+    if(val.anim == true){
+      cardP1Ref[i].emit("move-card-" + i + "-p1");
+   }  
+}
+  database.ref("Player 2/Cards" + i.toString()).once("value").then(function(snap){
+    var val = snap.val();
+    if(val.anim == true){
+      cardP1Ref[i].emit("move-card-" + i + "-p2");
+   }  
+}
+}
 }
 
 function coinFlip () {
@@ -433,3 +359,4 @@ if (flip == 0) {
 })
 }
 }
+var checkForAnimation = setInterval(animCheck, 2000);
