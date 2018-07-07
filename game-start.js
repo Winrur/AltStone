@@ -124,6 +124,7 @@
               cardP1Ref[3].addEventListener("animationcomplete", function(anim){
                 console.log(anim);
                 cardP1Ref[3].setAttribute("visible", false);
+                endTurnP1[1].setAttribute("visible", false);
               });
             }
             if(card2P1 == "0.5") {
@@ -131,6 +132,7 @@
               cardP1Ref[4].emit("move-card-4-p1");
               cardP1Ref[4].addEventListener("animationcomplete", function(){
                 cardP1Ref[4].setAttribute("visible", false);
+                endTurnP1[1].setAttribute("visible", false);
               });
             }
             if(card3P1 == "0.5") {
@@ -138,6 +140,7 @@
               cardP1Ref[5].emit("move-card-5-p1");
               cardP1Ref[5].addEventListener("animationcomplete", function(){
                 cardP1Ref[5].setAttribute("visible", false);
+                endTurnP1[1].setAttribute("visible", false);
               });
             }
             if(card4P1 == "0.5") {
@@ -145,6 +148,7 @@
               cardP1Ref[6].emit("move-card-6-p1");
               cardP1Ref[6].addEventListener("animationcomplete", function(){
                 cardP1Ref[6].setAttribute("visible", false);
+                endTurnP1[1].setAttribute("visible", false);
               });
             }
          });
@@ -159,6 +163,7 @@
               cardP2Ref[3].addEventListener("animationcomplete", function(anim){
                 console.log(anim);
                 cardP2Ref[3].setAttribute("visible", false);
+                endTurnP2[1].setAttribute("visible", false);
               });
             }
             if(card2P2 == "0.5") {
@@ -166,6 +171,7 @@
               cardP2Ref[4].emit("move-card-4-p2");
               cardP2Ref[4].addEventListener("animationcomplete", function(){
                 cardP2Ref[4].setAttribute("visible", false);
+                endTurnP2[1].setAttribute("visible", false);
               });
             }
             if(card3P2 == "0.5") {
@@ -173,6 +179,7 @@
               cardP2Ref[5].emit("move-card-5-p2");
               cardP2Ref[5].addEventListener("animationcomplete", function(){
                 cardP2Ref[5].setAttribute("visible", false);
+                endTurnP2[1].setAttribute("visible", false);
               });
             }
             if(card4P2 == "0.5") {
@@ -180,6 +187,7 @@
               cardP2Ref[6].emit("move-card-6-p2");
               cardP2Ref[6].addEventListener("animationcomplete", function(){
                 cardP2Ref[6].setAttribute("visible", false);
+                endTurnP2[1].setAttribute("visible", false);
               });
             }
          });
