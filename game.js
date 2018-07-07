@@ -1,14 +1,8 @@
   var turnCounter = 0
   var cardArr = [];
   var cardData;
-  fbRef.doc("Player 1 Cards").set({
-    testVal: "testVal"
-  })
-  fbRef.doc("Player 2 Cards").set({
-    testVal: "testVal"
-  })
   for(var i = 53; i <= 220; i++){
-    var currentCard = cardList.Basic[i]
+    var currentCard = cardList.Basic[i];
     console.log(i);
     cardArr[i] = new Card( currentCard.name,
                            currentCard.type,
@@ -51,6 +45,7 @@
                     cardArr[186], //Stormwind Champion
                     cardArr[186] //Stormwind Champion
                   ];
+  console.log(p1Deck);
   var p2Deck = [ cardArr[57], //Innervate
                     cardArr[57], //Innervate
                     cardArr[68], //Claw
@@ -93,7 +88,5 @@ function setupGame(){
   turnCounter = 0;
   shuffle(p1Deck);
   shuffle(p2Deck);
-
-
 };
 setupGame();

@@ -1,4 +1,5 @@
 var p1Joined = false;
+console.log(database);
 var p2Joined = false;
 var gameStarted = false;
 AFRAME.registerComponent("join-game-p1", {
@@ -7,12 +8,12 @@ AFRAME.registerComponent("join-game-p1", {
         var el = this.el;
         var p1JoinText = document.getElementById("join-game-p1-text");
         var p1User;
-        fbRef.doc("Player 1").delete();
-        fbRef.doc("States").update({
+        database.ref("Player 1").remove()
+        database.ref("States").update({
             p1joined: p1Joined
         })
-        fbRef.doc("States").onSnapshot(function(doc){
-            var data = doc.data();
+        database.ref("States").on("value", function(snap){
+            var data = snap.val();
             if (data.p1joined == true) {
                 el.setAttribute("material", "opacity", 1);
                 p1JoinText.setAttribute("visible", false);
@@ -25,7 +26,7 @@ AFRAME.registerComponent("join-game-p1", {
         el.object3D.addEventListener("triggerenter", function() {
             altspace.getUser().then(function(user){
             p1User = user;
-            fbRef.doc("Player 1").set({
+            database.ref("Player 1").set({
                 userid: p1User.userId,
                 displayname: p1User.displayName,
                 ismoderator: p1User.isModerator
@@ -33,7 +34,7 @@ AFRAME.registerComponent("join-game-p1", {
             if (el.getAttribute("id") == "p1-join-box" && gameStarted == false && p1User.userId == user.userId) {
             p1Joined = true;
             console.log(p1User.displayName + " (P1) joined the game!");
-            fbRef.doc("States").update({
+            database.ref("States").update({
                         p1joined: p1Joined
             })
             
@@ -42,9 +43,9 @@ AFRAME.registerComponent("join-game-p1", {
         el.object3D.addEventListener("triggerexit", function() {
             if (el.getAttribute("id") == "p1-join-box" && gameStarted == false && p1User.userId == user.userId) {
             p1Joined = false;
-            fbRef.doc("Player 1").delete();
+            database.ref("Player 1").remove();
             console.log(p1User.displayName + " (P1) left the game.");
-            fbRef.doc("States").update({
+            database.ref("States").update({
                         p1joined: p1Joined
             })
             
@@ -62,12 +63,12 @@ AFRAME.registerComponent("join-game-p2", {
         var el = this.el;
         var p2JoinText = document.getElementById("join-game-p2-text");
         var p2User;
-        fbRef.doc("Player 2").delete();
-        fbRef.doc("States").update({
+        database.ref("Player 2").remove();
+        database.ref("States").update({
             p2joined: p2Joined
         })
-        fbRef.doc("States").onSnapshot(function(doc){
-            var data = doc.data();
+        database.ref("States").on("value", function(doc){
+            var data = doc.val();
             if (data.p2joined == true) {
                 el.setAttribute("material", "opacity", 1);
                 p2JoinText.setAttribute("visible", false);
@@ -80,7 +81,7 @@ AFRAME.registerComponent("join-game-p2", {
         el.object3D.addEventListener("triggerenter", function() {
             altspace.getUser().then(function(user){
             p2User = user;
-            fbRef.doc("Player 2").set({
+            database.ref("Player 2").set({
                 userid: p2User.userId,
                 displayname: p2User.displayName,
                 ismoderator: p2User.isModerator
@@ -88,7 +89,7 @@ AFRAME.registerComponent("join-game-p2", {
             if (el.getAttribute("id") == "p2-join-box" && gameStarted == false && p2User.userId == user.userId) {
             p2Joined = true;
             console.log(p2User.displayName + " (P2) joined the game!");
-            fbRef.doc("States").update({
+            database.ref("States").update({
                         p2joined: p2Joined
             })
             
@@ -97,9 +98,9 @@ AFRAME.registerComponent("join-game-p2", {
         el.object3D.addEventListener("triggerexit", function() {
             if (el.getAttribute("id") == "p2-join-box" && gameStarted == false && p2User.userId == user.userId) {
             p2Joined = false;
-            fbRef.doc("Player 2").delete();
+            database.ref("Player 2").remove();
             console.log(p2User.displayName + " (P2) left the game.");
-            fbRef.doc("States").update({
+            database.ref("States").update({
                         p2joined: p2Joined
             })
             
@@ -117,27 +118,33 @@ AFRAME.registerComponent("start-game", {
         var el = this.el;
         var p1JoinBox = document.getElementById("p1-join-box");
         var p2JoinBox = document.getElementById("p2-join-box");
-        fbRef.doc("States").update({
+        database.ref("States").update({
             gamestarted: gameStarted
         })
-        fbRef.doc("States").onSnapshot(function(doc){
-            var data = doc.data();
+        database.ref("States").on("value", function(doc){
+            var data = doc.val();
             if (data.p1joined == true && data.p2joined == true) {
                 gameStarted = true;
-                fbRef.doc("States").update({
+                database.ref("States").update({
                     gamestarted: gameStarted
                 })
-      fbRef.doc("Player 1").get().then(function(doc){
-      var data = doc.data();
+      database.ref("Player 1").once("value").then(function(doc){
+      var data = doc.val();
       p1Id = data.userid;
     })
-    fbRef.doc("Player 2").get().then(function(doc){
-      var data = doc.data();
+    database.ref("Player 2").once("value").then(function(doc){
+      var data = doc.val();
       p2Id = data.userid;
     })
-                gameStartStuff();
         }
 })
     }
 
 });
+
+database.ref("States").on("value", function(snap){
+    var val = snap.val();
+    if(val.gamestarted == true){
+        gameStartStuff();
+    }
+})
