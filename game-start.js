@@ -211,10 +211,10 @@
               cardP1Ref[i].setAttribute("animation", "dir", "reverse");
               cardP2Ref[i].setAttribute("animation", "dir", "reverse");
               database.ref("Player 1/Cards" + i.toString()).update({
-                anim: true;
+                anim: true
               })
               database.ref("Player 2/Cards" + i.toString()).update({
-                anim: true;
+                anim: true
               })
               }
     }
