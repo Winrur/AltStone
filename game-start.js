@@ -2,6 +2,7 @@
     var p2Id;
     var arrayOfCards = [];
     var timeout;
+    var checkForAnimation;
     var p1DeckBox = document.getElementById("p1-deck-box");
     var p1DeckBoxRef = p1DeckBox.getAttribute("position");
     p1DeckBoxPos = `${p1DeckBoxRef.x} ${p1DeckBoxRef.y} ${p1DeckBoxRef.z}`;
@@ -278,6 +279,7 @@
               var currentIndexP1;
               var currentIndexP2;
               for (i = 3; i <= 6; i++) {
+                checkForAnimation = setInterval(animCheck, 2000);
                 toggleP1[i] = false;
                 currentIndexP1 = toggleP1[i];
               cardP1Ref[i].object3D.addEventListener("cursordown", function(snap){
@@ -310,22 +312,6 @@
                 }
               })
               }
-function animCheck () {
-  for (var i = 0; i <= 28; i++) {
-  database.ref("Player 1/Cards" + i.toString()).once("value").then(function(snap){
-    var val = snap.val();
-    if(val.anim == true){
-      cardP1Ref[i].emit("move-card-" + i + "-p1");
-   }  
-}
-  database.ref("Player 2/Cards" + i.toString()).once("value").then(function(snap){
-    var val = snap.val();
-    if(val.anim == true){
-      cardP1Ref[i].emit("move-card-" + i + "-p2");
-   }  
-}
-}
-}
 
 function coinFlip () {
   var p1Flip;
@@ -359,4 +345,22 @@ if (flip == 0) {
 })
 }
 }
-var checkForAnimation = setInterval(animCheck, 2000);
+})
+})
+}
+function animCheck () {
+  for (var i = 0; i <= 28; i++) {
+  database.ref("Player 1/Cards" + i.toString()).once("value").then(function(snap){
+    var val = snap.val();
+    if(val.anim == true){
+      cardP1Ref[i].emit("move-card-" + i + "-p1");
+   }  
+})
+  database.ref("Player 2/Cards" + i.toString()).once("value").then(function(snap){
+    var val = snap.val();
+    if(val.anim == true){
+      cardP1Ref[i].emit("move-card-" + i + "-p2");
+   }  
+})
+}
+}
