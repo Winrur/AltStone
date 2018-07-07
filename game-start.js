@@ -263,7 +263,6 @@
               var currentIndexP1;
               var currentIndexP2;
               for (i = 3; i <= 6; i++) {
-                }
                 toggleP1[i] = false;
                 currentIndexP1 = toggleP1[i];
               cardP1Ref[i].object3D.addEventListener("cursordown", function(snap){
@@ -272,12 +271,13 @@
                   el.setAttribute("material", "opacity", 0.5);
                   toggleP1[i] = true;
                   currentIndexP1 = toggleP1[i];
-                } else if(el.getAttribute("src") != "#card-back" && currentIndexP1 == true){
+                } else if(el.getAttribute("src") != "#card-back" && currentIndexP1 == true) {
                   el.setAttribute("material", "opacity", 1);
                   toggleP1[i] = false;
                   currentIndexP1 = toggleP1[i];
                 }
               })
+              }
               //P2
               for (i = 3; i <= 6; i++) {
                 toggleP2[i] = false;
