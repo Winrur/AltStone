@@ -98,7 +98,7 @@ AFRAME.registerComponent("join-game-p2", {
                         p2joined: p2Joined
             })
             
-          }
+          })
         el.object3D.addEventListener("triggerexit", function() {
             if (el.getAttribute("id") == "p2-join-box" && gameStarted == false && p2User.userId == user.userId) {
             p2Joined = false;
