@@ -192,14 +192,30 @@
             }
          });
           for(var i = 3; i < 7; i++){
+              database.ref("Player 1/Cards" + i.toString()).on("value", function(snap){
+                var val = snap.val();
+                if(val.anim == true){
+                  cardP1Ref[i].emit("move-card-" + i + "-p1");
+                }     
+              })
+              database.ref("Player 2/Cards" + i.toString()).on("value", function(snap){
+                var val = snap.val();
+                if(val.anim == true){
+                  cardP2Ref[i].emit("move-card-" + i + "-p2");
+                }     
+              })
               cardP1Ref[i].setAttribute("visible", "true");
               cardP2Ref[i].setAttribute("visible", "true");
               cardP1Ref[i].setAttribute("animation", "to", p1DeckBoxPos);
               cardP2Ref[i].setAttribute("animation", "to", p2DeckBoxPos);
               cardP1Ref[i].setAttribute("animation", "dir", "reverse");
               cardP2Ref[i].setAttribute("animation", "dir", "reverse");
-              cardP1Ref[i].emit("move-card-" + i + "-p1");
-              cardP2Ref[i].emit("move-card-" + i + "-p2");
+              database.ref("Player 1/Cards" + i.toString()).update({
+                anim: true;
+              })
+              database.ref("Player 2/Cards" + i.toString()).update({
+                anim: true;
+              })
               }
     }
     })
@@ -212,13 +228,15 @@
     name: p1Deck[i].cardName,
     cost: p1Deck[i].cost,
     health: p1Deck[i].health,
-    attack: p1Deck[i].attack     
+    attack: p1Deck[i].attack,
+    anim: false 
   }) 
 } else {
   database.ref("Player 1/Cards" + i.toString()).set({
     cardid: i,
     name: p1Deck[i].cardName,
     cost: p1Deck[i].cost,
+    anim: false 
   })
   } 
     if (p2Deck[i].cardType != "Spell") {
@@ -227,13 +245,15 @@
     name: p2Deck[i].cardName,
     cost: p2Deck[i].cost,
     health: p2Deck[i].health,
-    attack: p2Deck[i].attack     
+    attack: p2Deck[i].attack,
+    anim: false     
   }) 
 } else {
   database.ref("Player 2/Cards" + i.toString()).set({
     cardid: i,
     name: p2Deck[i].cardName,
     cost: p2Deck[i].cost,
+    anim: false 
   })
   } 
 }
@@ -244,9 +264,10 @@
               var currentIndexP1;
               var currentIndexP2;
               for (i = 3; i <= 6; i++) {
+                }
                 toggleP1[i] = false;
                 currentIndexP1 = toggleP1[i];
-              cardP1Ref[i].object3D.addEventListener("cursordown", function(){
+              cardP1Ref[i].object3D.addEventListener("cursordown", function(snap){
                 var el = this.el;
                 if(el.getAttribute("src") != "#card-back" && currentIndexP1 == false) {
                   el.setAttribute("material", "opacity", 0.5);
@@ -258,7 +279,6 @@
                   currentIndexP1 = toggleP1[i];
                 }
               })
-              }
               //P2
               for (i = 3; i <= 6; i++) {
                 toggleP2[i] = false;

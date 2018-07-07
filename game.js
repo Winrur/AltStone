@@ -14,7 +14,6 @@
                            currentCard.imgGold,
                            "https://raw.githubusercontent.com/schmich/hearthstone-card-images/master/rel/" + currentCard.dbfId + ".png");
   };
-  console.log(cardArr);
   var p1Deck = [ cardArr[57], //Innervate
                     cardArr[57], //Innervate
                     cardArr[68], //Claw
@@ -45,7 +44,6 @@
                     cardArr[186], //Stormwind Champion
                     cardArr[186] //Stormwind Champion
                   ];
-  console.log(p1Deck);
   var p2Deck = [ cardArr[57], //Innervate
                     cardArr[57], //Innervate
                     cardArr[68], //Claw
