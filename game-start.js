@@ -5,7 +5,9 @@
     var p1DeckBox = document.getElementById("p1-deck-box");
     var p1DeckBoxRef = p1DeckBox.getAttribute("position");
     p1DeckBoxPos = `${p1DeckBoxRef.x} ${p1DeckBoxRef.y} ${p1DeckBoxRef.z}`;
-
+    var p2DeckBox = document.getElementById("p2-deck-box");
+    var p2DeckBoxRef = p2DeckBox.getAttribute("position");
+    p2DeckBoxPos = `${p2DeckBoxRef.x} ${p2DeckBoxRef.y} ${p2DeckBoxRef.z}`;
     var p1ChooseInsText = document.getElementById("choose-ins-p1-text");
     p1ChooseInsText.setAttribute("visible", false);
     var p1ChooseCardsText = document.getElementById("choose-cards-p1-text");
@@ -183,7 +185,7 @@
               cardP1Ref[i].setAttribute("visible", "true");
               cardP2Ref[i].setAttribute("visible", "true");
               cardP1Ref[i].setAttribute("animation", "to", p1DeckBoxPos);
-              cardP2Ref[i].setAttribute("animation", "to", p1DeckBoxPos);
+              cardP2Ref[i].setAttribute("animation", "to", p2DeckBoxPos);
               cardP1Ref[i].setAttribute("animation", "dir", "reverse");
               cardP2Ref[i].setAttribute("animation", "dir", "reverse");
               cardP1Ref[i].emit("move-card-" + i + "-p1");
